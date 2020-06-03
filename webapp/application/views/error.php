@@ -1,0 +1,1 @@
+<div class="payment_err"><?php echo 'payment Failure'; ?>...!</div>
