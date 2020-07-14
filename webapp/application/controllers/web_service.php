@@ -1,23 +1,10 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-
+<?php 
+header('Access-Control-Allow-Origin: *');
+header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
+header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, X-Requested-With");
+if ( ! defined('BASEPATH')) exit('No direct script access allowed');
   // Allow from any origin
-	if (isset($_SERVER['HTTP_ORIGIN'])) {
-        header("Access-Control-Allow-Origin: {$_SERVER['HTTP_ORIGIN']}");
-        header('Access-Control-Allow-Credentials: true');
-        header('Access-Control-Max-Age: 86400');    // cache for 1 day
-    }
-
-	// Access-Control headers are received during OPTIONS requests
-	if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
-
-		if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_METHOD']))
-			header("Access-Control-Allow-Methods: GET, POST, OPTIONS");         
-
-		if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']))
-			header("Access-Control-Allow-Headers: {$_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']}");
-
-		exit(0);
-	}
+ 
 
 
 class web_service extends CI_Controller
@@ -42,17 +29,21 @@ class web_service extends CI_Controller
 
 		date_default_timezone_set("Asia/Kolkata");
 		// session_start();
+		//$this->load->model('model_web_service');
+	 
+
 	}
 	public function index()
 	{
 		// echo "dd";
+		 
 	}
 	
 	public function login(){
-			
+
 			$postdata = file_get_contents("php://input");
 			$request = json_decode($postdata);
-			
+			$this->load->model('model_web_service');
 			$key_status    = $this->model_web_service->authenticate_key($request);
 			
 			if( $key_status ){
@@ -63,7 +54,7 @@ class web_service extends CI_Controller
 								
 								);
 				print json_encode($finresult);
-			}
+			} 
 			
 	}
 	
@@ -196,12 +187,11 @@ class web_service extends CI_Controller
 	}
 	
 	public function fetch_cab_details(){
-		
-		$postdata = file_get_contents("php://input");
-		$request = json_decode($postdata);
-		
+		$book_date = $_POST["book_date"];
+		$transfertype = $_POST["transfertype"];
+
 		$myDate = new DateTime();
-		$myDate->setTimestamp( strtotime( $request->book_date) );
+		$myDate->setTimestamp( strtotime( $book_date) );
 		
 		$time =  $myDate->format("H");
 		
@@ -211,14 +201,17 @@ class web_service extends CI_Controller
 			$timetype = 'day';
 		}
 		
-		$request->timetype	= $timetype;
+		$request = array(
+			"book_date" => $book_date,
+			"transfertype" => $transfertype
+		);
+
+
+		$request +=  array('timetype' => $timetype);
+	 	 
 		
 		$result = $this->model_web_service->fetch_cabs( $request );
-		
-		$finresult = array( 
-													'status'  => 'success', 
-													'cabs'		=> $result
-									 );
+		$finresult = array('status'  => 'success', 'cabs' => $result);
 		print json_encode( $finresult );
 		
 	}
@@ -618,6 +611,7 @@ class web_service extends CI_Controller
 		}
 		
 		  public function fetchUserAppLanguage(){
+
 			$this->db->select('language_meta');
 			$this->db->where('status','1');
 			$query  = $this->db->get('user_app_language');

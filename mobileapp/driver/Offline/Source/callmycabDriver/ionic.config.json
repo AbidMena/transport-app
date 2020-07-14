@@ -1,4 +1,14 @@
 {
   "name": "project_dummy",
-  "app_id": ""
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic1",
+  "proxies": [
+    {
+      "path":"/driverapp",
+      "proxyUrl": "http://adisingenieros.com/driverapp"
+    }
+  ]
+
 }

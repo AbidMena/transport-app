@@ -88,14 +88,8 @@ class model_web_service extends CI_Model{
 	
 	function fetch_cabs($request){
 		
-		$table = 'cabdetails';	
-		$select_data = "*";
-	
-		$this->db->select($select_data);
-		 Table name = User
-		$result = $query->result_array(); 
-	
-		return $result;
+		$query = $this->db->query("SELECT *  FROM cabdetails");
+		return $query->result();
 		
 	}
 	function load_trips($request){
@@ -104,15 +98,9 @@ class model_web_service extends CI_Model{
 		
 		$query  = $this->db->get($table);  //---
 		
-$table = 'bookingdetails'; 
-$select_data = "uneaque_id ,purpose, pickup_area, pickup_date, drop_area, pickup_time, bookingdetails.taxi_type, status,distance,amount,item_status,km,bookingdetails.timetype,assigned_for,driver_details.name";
-$this->db->select($select_data);
- $this->db->from($table); 
  
- $this->db->join('driver_details', 'driver_details.id = bookingdetails.assigned_for'); 
- $this->db->where('username', $request->token); 
- $this->db->order_by("bookingdetails.id","desc"); 
- $query = $this->db->get(); //--- Table name = User 
+$select_data = "SELECT DISTINCT b.uneaque_id ,b.purpose, b.pickup_area, b.pickup_date, b.drop_area, b.pickup_time, b.taxi_type, b.status, b.distance, b.amount, b.item_status, b.km, b.timetype, b.assigned_for, d.name FROM bookingdetails b LEFT JOIN driver_details d ON d.id = b.assigned_for WHERE b.username = '$request->token' ORDER BY b.id DESC";
+ $query = $this->db->query($select_data); //--- Table name = User 
  $result = $query->result_array();
  return $result;
 	}
@@ -472,12 +460,12 @@ function driver_login($request)
     {
         $table = 'bookingdetails';	
 		$select_data = "*";
-	
-		$this->db->select($select_data);
+		$query = $this->db->query("SELECT * FROM bookingdetails");
+		//$this->db->select($select_data);
 		//$this->db->where("(assigned_for = '$request->driver_id' )");
-		$this->db->where('assigned_for', $request->driver_id);
-        $this->db->order_by("pickup_date","asc");
-		$query  = $this->db->get($table);  //--- Table name = User
+		//$this->db->where('assigned_for', $request->driver_id);
+        //$this->db->order_by("pickup_date","asc");
+		//$query  = $this->db->get($table);  //--- Table name = User
 		$result = $query->result_array(); 
 	    
         return $result;

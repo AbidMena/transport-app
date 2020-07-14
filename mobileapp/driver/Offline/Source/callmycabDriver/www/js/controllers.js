@@ -24,11 +24,11 @@ App.controller('AppCtrl', function ($cordovaNetwork, $scope, $ionicModal, $timeo
 
     }
 
-    if ($cordovaNetwork.isOffline()) {
+   /* if ($cordovaNetwork.isOffline()) {
         set_net('offline');
     } else {
         set_net('online');
-    }
+    }*/
 
 
 

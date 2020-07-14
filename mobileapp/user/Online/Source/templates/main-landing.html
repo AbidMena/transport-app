@@ -1,0 +1,106 @@
+
+<ion-view>
+	
+	<ion-nav-title>
+	 <div class='color-yellow text-center'>{{ 'CallMyCab' | langTranslate: appConvertedLang['CallMy_Cab'] }}</div>
+  </ion-nav-title>
+	
+	<ion-content  scroll='false' drag-content="false">
+    <div id='main-land-container'>
+				<div id='set-top' class='target-box bg-dark' >
+					<div class='wrap'>
+						<label  class=" item-input">
+							<i class="icon ion-ios-search placeholder-icon color-yellow "></i>
+							<!-- <input class='color-yellow' ng-autocomplete id="autocomplete-to" type="text" ng-model="sel_place"  placeholder="Pickup location" details="autocomplete.details" > -->
+					<input ng-disabled='pop_status' class='color-yellow' id="autocompletefrom"  ng-model='start_box.location' type="text" ng-focus='disableTapFrom()'  placeholder="{{ 'Enter Pickup location' | langTranslate: appConvertedLang['Enter_Pickup_location'] }}"  />
+					</label>
+						
+					</div>
+					<div class='wrap' style='margin-top: 10px;'>
+						<label  class=" item-input">
+							<i class="icon ion-ios-search placeholder-icon color-yellow "></i>
+							<!-- <input class='color-yellow' ng-autocomplete id="autocomplete-to" type="text" ng-model="sel_place"  placeholder="Pickup location" details="autocomplete.details" > -->
+					<input ng-disabled='pop_status' class='color-yellow' id="autocompleteto" ng-model='end_box.location' type="text"  ng-focus='disableTapTo()'  placeholder="{{ 'Enter Drop location' | langTranslate: appConvertedLang['Enter_Drop_location'] }}"  />
+
+						</label>
+					</div>	
+				</div>
+				
+				<!-- <input type="datetime-local"> -->
+				
+				<div id="map"   data-tap-disabled="true"  > <!-- -->
+				</div>
+				 <input id='Tripdate' type='datetime-local' ng-model='Trip_Date' />
+	  </div>
+	  
+	  <div id='my-pop' class='animation-styles bg-dark1' >
+		<!-- http://codepen.io/anon/pen/avNRwz -->
+		<!-- <my-date-time-picker placeholder="Enter Date here" title="Select Date" ng-model="my_model" /> -->
+		 
+			<div id='tab-hide' class='bg-dark1 visible'> 
+				<div class='head-box text-center'>
+					<div class='vertical-middle'>
+						<span class='color-yellow d-block '>{{selected_cab.cartype}}</span>
+						<span class='color-gery d-block'>{{ 'Toyota etios, tata indigo, maruti dezire.' | langTranslate: appConvertedLang['Toyota_etios_tata_indigo_maruti_dezire'] }}</span>
+					</div>
+				</div>
+			
+				<div id='fare-breakup-box' class='text-center'>
+					<div class='head'>
+						<span >{{ 'Fare Breakup' | langTranslate: appConvertedLang['Fare_Breakup'] }}</span>
+					</div>
+					<!-- {{end_box}} -->
+					<div class="row ">
+						<div class="item-rate col col-33">
+							<div class='vertical-middle'>
+								<p class='color-gery'><b><span class='color-yellow f-size-20'>₹ </span> {{selected_cab.intailrate}}</b></p>
+								<p class='color-gery'>{{ 'First' | langTranslate: appConvertedLang['First'] }}{{ selected_cab.intialkm }}km</p>
+							</div>
+						</div>
+						<div class="item-rate col col-33">
+							<div class='vertical-middle'>
+								<p class='color-gery'><b><span class='color-yellow f-size-20'>₹ </span>{{selected_cab.standardrate}}/km</b></p>
+								<p class='color-gery'> {{ 'After' | langTranslate: appConvertedLang['After'] }} {{ selected_cab.intialkm }}km</p>
+							</div>
+						</div>
+						<div class="item-rate col col-33 no-border">
+							<div class='vertical-middle'>
+								<p class='color-gery'><b><span class='color-yellow f-size-20'>₹ </span>1/min</b></p>
+								<p class='color-gery'>{{ 'Ride time rate' | langTranslate: appConvertedLang['Ridetime_rate'] }}</p>
+							</div>
+						</div>
+					</div>
+					<p class='color-gery f-size-12 p10'>{{ 'Airport rate may differ, peak  time charges may apply.' | langTranslate: appConvertedLang['Airport_rate_may_differ_peaktime_chargesmayapply'] }}</p>
+				</div>
+				
+			</div>
+			
+		<ion-scroll delegate-handle="calendarScroll" direction="x" class='bg-dark2'>
+					
+            <div class="row no-padding text-center ">
+                <div class="col col-25" ng-class="{active_cab : active_cab == $index }" ng-click='clicked_item($index)' ng-repeat="cab in cabs">
+                    <div class="col color-yellow">{{cab.cartype | limitTo:7 }}<span ng-show='cab.cartype.length > 7' >..</span></div>
+                    <img ng-src='img/{{cab.cartype}}.png' err-SRC="img/Sedan.png" style='width: 50px' />
+                    <!-- <div class="col color-gery">{{day.number}}</div> -->
+                    
+                </div>
+            </div>
+    </ion-scroll>
+	  </div>
+	  <div class='color-white text-center net-error' >{{ 'No network connection!' | langTranslate: appConvertedLang['No_network_connection'] }}</div>	
+  </ion-content>
+    
+	<ion-footer-bar class="bg-dark" >
+		<div class='footer-box bg-dark color-yellow' ng-show='pop_status == false'>
+			<div class='w-50-p pull-left my-button h-100-p text-center border-r-yellow' ng-click='ride("later")'>{{ 'RIDE LATER' | langTranslate: appConvertedLang['RIDE_LATER'] }}</div>
+			<div class='w-50-p pull-left my-button h-100-p text-center'  ng-click='ride("now")'>{{ 'RIDE NOW' | langTranslate: appConvertedLang['RIDE_NOW'] }}</div>
+		</div>
+		
+		<div class='footer-box bg-dark color-yellow' ng-show='pop_status == true'>
+			<div class='w-50-p pull-left my-button h-100-p text-center border-r-yellow'  ng-click='cancel()' >{{ 'Cancel' | langTranslate: appConvertedLang['Cancel'] }}</div>
+			<div class='w-50-p pull-left my-button h-100-p text-center'  ng-click='book()'>{{ 'Book' | langTranslate: appConvertedLang['Book'] }}</div>
+		</div>
+		
+	</ion-footer-bar>
+
+</ion-view>

@@ -129,7 +129,7 @@ App.controller('rateCardCtrl', function ($scope, $ionicModal, $timeout, $interva
 
     /*Function for fetching Address string of a location by Lat&lng */
     function get_places_address(lat, lng) {
-        var current_lat_lng = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + ',' + lng;
+        var current_lat_lng = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + ',' + lng + '&key=' + map_api_key;
 
         var promise_pickup = WebService.get_google_lat_lng(current_lat_lng);
         // WebService.show_loading();

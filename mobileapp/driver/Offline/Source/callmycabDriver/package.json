@@ -3,17 +3,33 @@
   "version": "1.1.1",
   "description": "project_dummy: An Ionic project",
   "dependencies": {
-    "cordova-uglify": "^0.2.8",
-    "gulp": "^3.5.6",
+    "@ionic-native/android-permissions": "^5.27.0",
+    "@ionic-native/core": "^5.1.0",
+    "@ionic-native/network": "^5.27.0",
+    "cordova-android": "^8.1.0",
+    "cordova-android-support-gradle-release": "^3.0.1",
+    "cordova-plugin-android-permissions": "^1.0.2",
+    "cordova-plugin-network-information": "^2.0.2",
+    "cordova-uglify": "^0.3.4",
+    "gulp": "^4.0.2",
     "gulp-concat": "^2.2.0",
     "gulp-minify-css": "^0.3.0",
     "gulp-rename": "^1.2.0",
-    "gulp-sass": "^2.0.4"
+    "gulp-sass": "^4.1.0",
+    "natives": "^1.1.6",
+    "rxjs": "^5.5.0"
   },
   "devDependencies": {
+    "@ionic/v1-toolkit": "3.2.3",
     "bower": "^1.3.3",
     "gulp-util": "^2.2.14",
-    "shelljs": "^0.3.0"
+    "shelljs": "^0.3.0",
+    "cordova-plugin-whitelist": "1.3.3",
+    "cordova-plugin-statusbar": "2.4.2",
+    "cordova-plugin-device": "2.0.2",
+    "cordova-plugin-splashscreen": "5.0.2",
+    "cordova-plugin-ionic-webview": "^4.0.0",
+    "cordova-plugin-ionic-keyboard": "^2.0.5"
   },
   "cordovaPlugins": [
     "cordova-plugin-console",
@@ -23,5 +39,23 @@
     "ionic-plugin-keyboard",
     "cordova-plugin-whitelist"
   ],
-  "cordovaPlatforms": []
+  "cordovaPlatforms": [],
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-statusbar": {},
+      "cordova-plugin-device": {},
+      "cordova-plugin-splashscreen": {},
+      "cordova-plugin-ionic-webview": {},
+      "cordova-plugin-ionic-keyboard": {},
+      "cordova-android-support-gradle-release": {
+        "ANDROID_SUPPORT_VERSION": "27.+"
+      },
+      "cordova-plugin-network-information": {},
+      "cordova-plugin-android-permissions": {}
+    },
+    "platforms": [
+      "android"
+    ]
+  }
 }

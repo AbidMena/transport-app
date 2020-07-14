@@ -44,6 +44,9 @@ function run() {
     switch (platform) {
       case 'android':
         wwwPath = path.join(platformPath, platform, 'assets', 'www');
+        if (!fs.existsSync(wwwPath)) {
+          wwwPath = path.join(platformPath, platform, 'app', 'src', 'main', 'assets', 'www');
+        }
         break;
 
       case 'ios':
@@ -121,7 +124,7 @@ function compress(file) {
     case '.js':
       console.log('uglifying js file ' + file);
 
-      res = ngAnnotate(String(fs.readFileSync(file)), {
+      res = ngAnnotate(String(fs.readFileSync(file, 'utf8')), {
         add: true
       });
       result = UglifyJS.minify(res.src, hookConfig.uglifyJsOptions);

@@ -1,10 +1,10 @@
 <?php defined("BASEPATH") OR exit("No direct script access allowed");$active_group = "default";
           $query_builder = TRUE;
 $db["default"] = array("dsn"  => "",
-"hostname" => "192.168.140.123", 
-"username" => "root" ,
-"password" => "Golden_123",
-"database" => "anju_envato_cmc",
+"hostname" => "localhost", 
+"username" => "exprete0_adis" ,
+"password" => "{.]cbz5l.yQeT[",
+"database" => "exprete0_driverapp",
 "dbdriver" => "mysqli",
 "pconnect" => FALSE,
 "db_debug" => (ENVIRONMENT !== "production"),
