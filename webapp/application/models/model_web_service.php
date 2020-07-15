@@ -93,16 +93,17 @@ class model_web_service extends CI_Model{
 		
 	}
 	function load_trips($request){
+		$table = 'bookingdetails';
 		$this->db->where('transfertype', $request->transfertype);
 		$this->db->where('timetype', $request->timetype);
 		
 		$query  = $this->db->get($table);  //---
-		
- 
-$select_data = "SELECT DISTINCT b.uneaque_id ,b.purpose, b.pickup_area, b.pickup_date, b.drop_area, b.pickup_time, b.taxi_type, b.status, b.distance, b.amount, b.item_status, b.km, b.timetype, b.assigned_for, d.name FROM bookingdetails b LEFT JOIN driver_details d ON d.id = b.assigned_for WHERE b.username = '$request->token' ORDER BY b.id DESC";
- $query = $this->db->query($select_data); //--- Table name = User 
- $result = $query->result_array();
- return $result;
+				
+		 
+		$select_data = "SELECT DISTINCT b.uneaque_id ,b.purpose, b.pickup_area, b.pickup_date, b.drop_area, b.pickup_time, b.taxi_type, b.status, b.distance, b.amount, b.item_status, b.km, b.timetype, b.assigned_for, d.name FROM bookingdetails b LEFT JOIN driver_details d ON d.id = b.assigned_for WHERE b.username = '$request->token' ORDER BY b.id DESC";
+		 $query = $this->db->query($select_data); //--- Table name = User 
+		 $result = $query->result_array();
+		 return $result;
 	}
 	function load_all_cabs($request){
 		

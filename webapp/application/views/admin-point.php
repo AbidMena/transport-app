@@ -53,7 +53,7 @@
 								
 								 // $query1 = $this->db->query("SELECT * FROM  bookingdetails WHERE purpose='Point to Point Transfer'  and status='$status' and (item_status='Completed' or item_status='')  ORDER BY id DESC");
 
-                  $query1 = $this->db->query("SELECT * FROM bookingdetails WHERE purpose='Point to Point Transfer' and status='$status' and assigned_for='0' and item_status='Completed' ORDER BY id DESC");
+                  $query1 = $this->db->query("SELECT * FROM bookingdetails WHERE purpose='Point to Point Transfer' and status='$status' and assigned_for is NULL and item_status is NULL ORDER BY id DESC");
 								?>
                                 
                                     <thead>

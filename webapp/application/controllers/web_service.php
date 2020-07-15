@@ -415,7 +415,7 @@ class web_service extends CI_Controller
         //var_dump($result);
         
         foreach($result as $item ){
-			if( $item['status'] == 'Processing'){
+			if( $item['status'] == 'Booking'){
 				$new_rade[] = $item;
 			}else if( $item['status'] == 'Complete' ){
 				$complete[] = $item;	
