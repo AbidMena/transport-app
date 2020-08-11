@@ -17,7 +17,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Point To Point Transfer Details
+            Detalles Transferencia de Punto a Punto
           </h1>
           <ol class="breadcrumb">
             <li><a href="<?php echo base_url();?>admin/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -59,11 +59,11 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>From</th>
-                                            <th>To</th>
-                                             <th>Date</th>
-                                             <th>Status</th>
-                                            <th>Action</th>
+                                            <th>Desde</th>
+                                            <th>A</th>
+                                             <th>Fecha</th>
+                                             <th>Estado</th>
+                                            <th>Accion</th>
                                            
                                         </tr>
                                     </thead>

@@ -44,10 +44,10 @@
                                 
                                     <thead>
                                         <tr>
-                                            <th>Username</th>
-                                            <th>Mobile</th>
+                                            <th>Usuario</th>
+                                            <th>Celular</th>
                                             <th>Email</th>
-                                            <th>Action</th>
+                                            <th>Accion</th>
                                            
                                         </tr>
                                     </thead>

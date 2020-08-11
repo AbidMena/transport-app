@@ -1,8 +1,8 @@
  <footer class="main-footer">
         <div class="pull-right hidden-xs">
-          <b>Version</b> 3.1.1
+          <b></b> 
         </div>
-        <strong>Copyright &copy; 2018-2019 <a href="http://www.techware.co.in/">Techware Solution</a>.</strong> All rights reserved.
+        <strong>Copyright &copy; 2019-2020 <a href="http://www.adisingenieros.com">ADIS Ingenieros</a>.</strong> All rights reserved.
       </footer>
 	  <script src="<?php echo base_url();?>assets/adminlte/plugins/jQuery/jQuery-2.1.4.min.js"></script>
       

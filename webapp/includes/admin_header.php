@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>CMC Admin</title>
+    <title>Administrador</title>
 	
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -31,12 +31,12 @@
 	</head>
    <header class="main-header">
         <!-- Logo -->
-		<a href="<?php echo base_url();?>admin/dashboard" class="logo">CMC <?php echo ucfirst($this->session->userdata('role-admin'))?>
+		<a href="<?php echo base_url();?>admin/dashboard" class="logo"><?php echo ucfirst($this->session->userdata('role-admin'))?>
 		
           <!-- mini logo for sidebar mini 50x50 pixels -->
           <span class="logo-mini"><b>A</b>LT</span>
           <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg" ><b>CMC</b>Admin</span>
+          <span class="logo-lg" ><b></b>Administrador</span>
 		  
         </a>
         <!-- Header Navbar: style can be found in header.less -->
@@ -58,7 +58,7 @@
                   <span class="label label-success">4</span>
                 </a>-->
                 <ul class="dropdown-menu">
-                  <li class="header">You have 4 messages</li>
+                  <li class="header">Tu tienes 4 mensajes</li>
                   <li>
                     <!-- inner menu: contains the actual data -->
                     <ul class="menu">

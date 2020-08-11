@@ -16,12 +16,12 @@
         <!-- Content Header (Page header) -->
         <section class="content-header"> 
 		   <h1 class="add_promocode">
-          Edit User Details
+          Editar Detalles de Usuario
 		   </h1>
           <ol class="breadcrumb">
             <li><a href="<?php echo base_url();?>admin/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
             <li><a href="#">UM</a></li>
-            <li class="active">Edit</li>
+            <li class="active">Editar</li>
           </ol>
         </section>
 
@@ -48,7 +48,7 @@
                   <div class="box-body">
 				  
                     <div class="form-group">
-                                            <label>Username</label>
+                                            <label>Usuario</label>
                                            <input class="form-control regcom sample" placeholder="Username" name="username" id="signup-username" readonly value="<?php echo $row->username; ?>" >
                                         </div>
                                          <div class="form-group">
@@ -64,7 +64,7 @@
                                       
 										
 	              <div class="form-group">
-                    <label>Mobile</label>
+                    <label>Celular</label>
                     <div class="input-group">
                       <div class="input-group-addon">
                         <i class="fa fa-phone"></i>
@@ -108,7 +108,7 @@
                   
 					
 					 <div class="form-group">
-                    <label>Date of Birth</label>
+                    <label>Fecha de Nacimiento</label>
                     <div class="input-group">
                       <div class="input-group-addon">
                         <i class="fa fa-calendar"></i>
@@ -121,7 +121,7 @@
 					
 					
 					 <div class="form-group">
-                    <label>Anniversary Date</label>
+                    <label>Fecha de Aniversario</label>
                     <div class="input-group">
                       <div class="input-group-addon">
                         <i class="fa fa-calendar"></i>
@@ -132,13 +132,13 @@
                                         
 					
 					  <div class="form-group">
-                                            <label>Gender</label><br>
+                                            <label>Genero</label><br>
 
                                             <label class="radio-inline">
-                                                <input type="radio" name="gender" id="optionsRadiosInline1" value="male"  <?php if($row->gender=='male') {echo "checked";} ?> >Male
+                                                <input type="radio" name="gender" id="optionsRadiosInline1" value="male"  <?php if($row->gender=='male') {echo "checked";} ?> >Masculino
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="gender" id="optionsRadiosInline2" value="female"  <?php if($row->gender=='female'){echo "checked";} ?>>Female
+                                                <input type="radio" name="gender" id="optionsRadiosInline2" value="female"  <?php if($row->gender=='female'){echo "checked";} ?>>Femenino
                                             </label>
                                             
                                         </div>

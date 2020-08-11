@@ -17,7 +17,7 @@
         <section class="content-header">
                         
                                     <h1 class="edit_promo">
-                  Edit User Details
+                  Editar Detalles Usuario
                </h1>
                         
                       
@@ -26,7 +26,7 @@
           <ol class="breadcrumb">
             <li><a href="<?php echo base_url();?>admin/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
             <li><a href="#">BU</a></li>
-            <li class="active">Edit</li>
+            <li class="active">Editar</li>
           </ol>
         </section>
 
@@ -51,7 +51,7 @@
 				
                   <div class="box-body">
 				              <div class="form-group">
-                                            <label>Username</label>
+                                            <label>Usuario</label>
                                            <input class="form-control regcom sample" placeholder="Username" name="username" id="signup-username" value="<?php echo $row->username; ?>" >
                                         </div>
 										 <div class="form-group">
@@ -59,7 +59,7 @@
                                            <input class="form-control regcom " type="password" placeholder="Username" name="password" id="signup-password" value="<?php echo $row->password; ?>" >
                                         </div>
                                          <div class="form-group">
-                                            <label>Role</label>
+                                            <label>Rol</label>
                                            <input class="form-control regcom sample" placeholder="Role" name="role" id="signup-role"   value="<?php echo $row->role; ?>" >
                                         </div>
                                         
@@ -70,7 +70,7 @@
                                         </div>
                                        
                        <div class="form-group">
-                    <label>Mobile</label>
+                    <label>Celular</label>
                     <div class="input-group">
                       <div class="input-group-addon">
                         <i class="fa fa-phone"></i>
