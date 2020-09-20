@@ -19,14 +19,14 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1 class="add_promocode">
-		 Add Point To Point Transfer
+		 Agregar Transferencia de Punto a Punto
           </h1>
 		  
 		
           <ol class="breadcrumb">
-            <li><a href="<?php echo base_url();?>admin/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="<?php echo base_url();?>admin/dashboard"><i class="fa fa-dashboard"></i> Inicio</a></li>
             <li><a href="#">ABD</a></li>
-            <li class="active">Point To Point Transfer</li>
+            <li class="active">Transferencia de Punto a Punto</li>
           </ol>
         </section>
 	   <?php
@@ -147,10 +147,10 @@ function initialize(id) {
                   <div class="box-body">
 				  
                    <div class="form-group">
-                                            <label>User</label>
+                                            <label>Usuario</label>
 											
                                            <select id="signup-username" class="form-control select2 " style="width: 100%;" name="username">
-						                    <option value='0'>Select user</option>
+						                    <option value='0'>Seleccione usuario</option>
 											<?php
 											$query1 = $this->db->query("SELECT * FROM  userdetails");
 							             foreach($query1->result_array('userdetails') as $row1){
@@ -162,24 +162,24 @@ function initialize(id) {
 											</div>
                                        
                                         <div class="form-group">
-                                            <label>Pickup area</label>
-                                           <input class="form-control regcom sample"placeholder="Starting" name='pickup_area'id="autocomplete" autocomplete="on" onClick="initialize(this.id);">
+                                            <label>Area para ir a recoger</label>
+                                           <input class="form-control regcom sample"placeholder="Iniciando" name='pickup_area'id="autocomplete" autocomplete="on" onClick="initialize(this.id);">
                                         </div>
                                         <input type="hidden" id="pickup_lat"> 
                                         <input type="hidden" id="pickup_lng"> 
                                          <div class="form-group">
-                                            <label>Drop Area</label>
-                                           <input class="form-control regcom sample" placeholder="Destination" name='drop_area' id="autocomp" autocomplete="on" onClick="initialize(this.id);">
+                                            <label>Area para ir a dejar</label>
+                                           <input class="form-control regcom sample" placeholder="Destino" name='drop_area' id="autocomp" autocomplete="on" onClick="initialize(this.id);">
                                         </div>
                                          <input type="hidden" id="drop_lat"> 
                                         <input type="hidden" id="drop_lng"> 
 
                                         <div class="form-group">
-                                            <label>Distance</label>
-                                           <input class="form-control regcom sample" placeholder="Distance" name='distance' id="dist" readonly>
+                                            <label>Distancia</label>
+                                           <input class="form-control regcom sample" placeholder="Distancia" name='distance' id="dist" readonly>
                                         </div>
 				 <div class="form-group">
-                    <label>Pickup Date</label>
+                    <label>Hora para ir a recoger</label>
                     <div class="input-group">
                       <div class="input-group-addon">
                         <i class="fa fa-calendar"></i>
@@ -192,10 +192,10 @@ function initialize(id) {
 										
 										 <div class="bootstrap-timepicker">
                     <div class="form-group">
-                      <label>Pickup Time</label>
+                      <label>Hora para ir a recoger</label>
                       <div class="input-group">
 					  <div class="time_div">
-                        <input type="text" class="form-control timepicker regcom times" id="pickup_time" placeholder="Pickup Time" name="pickup_time">
+                        <input type="text" class="form-control timepicker regcom times" id="pickup_time" placeholder="Hora para ir a recoger" name="pickup_time">
 						</div>
                         <div class="input-group-addon">
                           <i class="fa fa-clock-o"></i>
@@ -207,7 +207,7 @@ function initialize(id) {
 				  
 										 <div class="form-group">
                                        
-                                        <input type="button" class="btn btn-primary" value="Submit"  name="Save" id="useradd">
+                                        <input type="button" class="btn btn-primary" value="Guardar"  name="Save" id="useradd">
                                         <button type="reset" class="btn btn-primary">Reset </button>
                                         </div>
 										
@@ -240,9 +240,9 @@ function initialize(id) {
 										   <input type="hidden" value="Point to Point Transfer"  name="purpose" id="purpose">
 										  <!---->
 												   
-                                            <label>Select Car</label>
+                                            <label>Seleccione Carro</label>
 											<select id="car" class="form-control select2" style="width: 100%;" name="taxi_type" >
-						                    <option value='0'>Select car</option>
+						                    <option value='0'>Seleccione carro</option>
 											<?php
 
 										$query1 = $this->db->query("SELECT * FROM cabdetails LEFT JOIN car_categories ON cabdetails.cartype=car_categories.car_type WHERE transfertype='Point to Point Transfer'");
@@ -255,8 +255,8 @@ function initialize(id) {
                                         </div>
 
                                         <div class="form-group">
-                                            <label>Amount</label>
-                                            <input class="form-control regcom sample" placeholder="Amount" name="amount" id="amnt">
+                                            <label>Mpnto</label>
+                                            <input class="form-control regcom sample" placeholder="Monto" name="amount" id="amnt">
                                         </div>
                                         <div class="form-group">
                                             <label>Area</label>
@@ -264,19 +264,19 @@ function initialize(id) {
                                             <input class="form-control" placeholder="Area" name="area" id="area">
                                         </div>
 										  <div class="form-group">
-                                            <label>Landmark</label>
+                                            <label>Punto de referencia</label>
                                             <!-- <input class="form-control regcom sample" placeholder="Landmark" name="landmark" id="landmark"> -->
-                                            <input class="form-control" placeholder="Landmark" name="landmark" id="landmark">
+                                            <input class="form-control" placeholder="Punto de referencia" name="landmark" id="landmark">
                                         </div>
 										<div class="form-group">
-                                            <label>Pickup Address</label>
+                                            <label>Dirección para recoger</label>
                                             <!-- <input class="form-control regcom sample" placeholder="Address" name="pickup_address" id="pickupadd"> -->
-                                            <input class="form-control" placeholder="Address" name="pickup_address" id="pickupadd">
+                                            <input class="form-control" placeholder="Dirección" name="pickup_address" id="pickupadd">
                                         </div>
 										<div class="form-group">
-                                            <label>Assigned For</label>
+                                            <label>Asignado para</label>
                                             <select id="assigned" class="form-control select2" style="width: 100%;" name="assigned_for">
-						                    <option value='0'>Select Driver</option>
+						                    <option value='0'>Seleccione conductor</option>
                                            
                                             </select>
                                         </div>

@@ -16,14 +16,14 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1 class="edit_promo">
-           Edit Driver Details
+           Editar Detalles del Conductor
           </h1>
 		  
 		 
           <ol class="breadcrumb">
             <li><a href="<?php echo base_url();?>admin/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
             <li><a href="#">DM</a></li>
-            <li class="active">Edit</li>
+            <li class="active">Editar</li>
           </ol>
         </section>
 
@@ -50,24 +50,30 @@
                   <div class="box-body">
 				     
 					                      <div class="form-group">
-                                            <label>Name</label>
+                                            <label>Nombre</label>
                                         <input  id="name" name="name" type="text" class="form-control  sample" value="<?php echo $row->name; ?>"> 
                                         </div>
 										<div class="form-group">
-                                        <label>Username</label>
+                                        <label>Usuario</label>
                                         <input  id="user_name" name="user_name" type="text" class="form-control regcom " value="<?php echo $row->user_name; ?>">
                                         </div><div class="form-group">
                                         <label>Password</label>
                                         <input  id="password" name="password" type="password" class="form-control regcom" value="<?php echo $row->password; ?>">
                                         </div>
-                                       
+                                        <div class="form-group">
+                                          <label>Estado Conductor</label>
+                                          <select id="userstatus" class="form-control select2 regcom"  style="width: 100%;" name="user_status">
+                                            <option value="Active" <?php if("Active"==$row->user_status) echo "selected"; ?>>Active</option>
+                                            <option value="Inactive" <?php if("Inactive"==$row->user_status) echo "selected"; ?>>Inactive</option>
+                                          </select>
+                                        </div>
                                          <div class="form-group">
-                                            <label>Address</label>
+                                            <label>Dirección</label>
                                           <textarea class="form-control  sample" rows="3" name="address" id="address"><?php echo $row->address; ?></textarea>
                                         </div>
                                        
                                          <div class="form-group">
-                    <label>Phone</label>
+                    <label>Celular</label>
                     <div class="input-group">
                       <div class="input-group-addon">
                         <i class="fa fa-phone"></i>
@@ -78,7 +84,7 @@
           
 				     <div class="form-group">
                                        
-                                        <input type="button" class="btn btn-primary" value="Save details"  name="Save" id="taxiadd">
+                                        <input type="button" class="btn btn-primary" value="Guardar"  name="Save" id="taxiadd">
                                         
                                         </div>
 										
@@ -100,13 +106,13 @@
                   <div class="box-body">
 				  
                                        <div class="form-group">
-                                            <label class="intrate">License No</label>
+                                            <label class="intrate">No. Licencia</label>
                                             <input class="form-control regcom" name="license_no" id="license" value="<?php echo $row->license_no; ?>">
                                         </div>
                                          <div class="form-group ">
 										  
 												   
-                                            <label>Car Type</label>
+                                            <label>Tipo Carro</label>
 											<select id="cartype" class="form-control select2"  style="width: 100%;" name="car_type">
 						                   <?php
 											$query1 = $this->db->query("SELECT * FROM car_categories where status='Active'");
@@ -118,12 +124,11 @@
 											</select>
                                         </div>
                                          <div class="form-group">
-                                            <label>Car No</label>
+                                            <label>No. Carro</label>
                                             <input class="form-control regcom"  name="car_no"  id="carno" value="<?php echo $row->car_no; ?>">
                                            <input class="form-control regcom"  name="id"  id="id" value="<?php echo $row->id; ?>" type="hidden">
                                            
                                         </div>
-                   
 				</div>  
 				  </form>
 	</div>
@@ -224,7 +229,8 @@ $("#taxiadd").click(function(){
 	   license=  $('#license').val();
 	   cartype=  $('#cartype').val();
 	   carno=  $('#carno').val();
-	  var pattern = /^\d{10}$/;
+     userstatus = $('#userstatus').val();
+	  var pattern = /^\d{8}$/;
     // only validate going forward. If current group is invalid, do not go further
     // .parsley().validate() returns validation result AND show errors
 	
@@ -279,12 +285,6 @@ $("#taxiadd").click(function(){
 	    $("#carno").focus();
 		return false;
    }
-  
-
- 
- 
- 
- 
  
  var value =$("#taxi_reg").serialize() ;
 
@@ -305,7 +305,7 @@ else{
 	
 	
 	
-$(".taxi").html('<p class="success">Driver Details Saved Successfully</p>');
+$(".taxi").html('<p class="success">Detalles del conductor guardado con éxito</p>');
 setTimeout(function(){$(".taxi").hide(); }, 1500);
 location.reload();
 }

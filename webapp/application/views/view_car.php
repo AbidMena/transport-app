@@ -17,12 +17,12 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Car Details
+            Detalles del Carro
           </h1>
           <ol class="breadcrumb">
-            <li><a href="<?php echo base_url();?>admin/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="<?php echo base_url();?>admin/dashboard"><i class="fa fa-dashboard"></i> Inicio</a></li>
             <li><a href="<?php echo base_url();?>admin/view_car">Cars</a></li>
-            <li class="active">View All</li>
+            <li class="active">Ver Todos</li>
           </ol>
         </section>
 
@@ -42,10 +42,10 @@
                     <thead>
                       <tr>
                         <th>No</th>
-                        <th>Car Type</th>
-                        <th>Car Image</th>
-                        <th>Status</th>
-						            <th>Action</th>
+                        <th>Tipo Carro</th>
+                        <th>Imagen Carro</th>
+                        <th>Estado</th>
+						            <th>Acción</th>
                       </tr>
                     </thead>  
       					<?php
@@ -115,7 +115,7 @@ $(function () {
 	
  $(document).on('click',"#example1 .delete",function(){
 							
-			var r = confirm("Are you sure want to delete the user details ");
+			var r = confirm("¿Está seguro que quiere eliminar los detalles del carro? ");
 			if (r == true) {
 				var th=$(this);			
 				var id = $(this).attr('title');

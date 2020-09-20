@@ -16,14 +16,14 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1 class="add_promocode">
-          Add Promo Code
+          Agregan Código Promoción
           </h1>
 		  
 		 
           <ol class="breadcrumb">
-            <li><a href="<?php echo base_url();?>admin/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="<?php echo base_url();?>admin/dashboard"><i class="fa fa-dashboard"></i> Inicio</a></li>
             <li><a href="#">PM</a></li>
-            <li class="active">Add New</li>
+            <li class="active">Agregar Nuevo</li>
           </ol>
         </section>
 
@@ -43,21 +43,21 @@
                   <div class="box-body">
 				  
                                          <div class="form-group">
-                                            <label>Promo Code</label>
-                                           <input class="form-control regcom" placeholder="Promo Code" name="promocode" id="promocode">
+                                            <label>Código Promoción</label>
+                                           <input class="form-control regcom" placeholder="Código Promoción" name="promocode" id="promocode">
                                          </div>
 					<div class="form-group">
-                                            <label>Type</label>
+                                            <label>Tipo</label>
                                           <select class="form-control regcom select2"  style="width: 100%;"name="type">
-                                               <option value="Fixed">Fixed</option>
-                                               <option value="Percentage">Percentage</option>
+                                               <option value="Fixed">Reparado</option>
+                                               <option value="Percentage">Porcentaje</option>
                                                
                                                   </select>
                                         </div>
 										
                     <div class="form-group">
-                                            <label>Amount</label>
-                                            <input class="form-control regcom" placeholder="Amount" name="amount" id="amount">
+                                            <label>Monto</label>
+                                            <input class="form-control regcom" placeholder="Monto" name="amount" id="amount">
                                             
                                         </div>
 
@@ -65,7 +65,7 @@
 				
 				  <div class="form-group">
                                        
-                                        <input type="button" class="btn btn-primary " value="Submit "  name="Save" id="promoadd">
+                                        <input type="button" class="btn btn-primary " value="Guardar "  name="Save" id="promoadd">
                                         <button type="reset" class="btn btn-primary">Reset </button>
                                         </div>
 				</div>  
@@ -92,7 +92,7 @@
 				  
                   
 					 <div class="form-group">
-                    <label>Start Date</label>
+                    <label>Fecha Inicio</label>
                     <div class="input-group">
                       <div class="input-group-addon">
                         <i class="fa fa-calendar"></i>
@@ -105,7 +105,7 @@
 					
 					 
 					 <div class="form-group">
-                    <label>End Date</label>
+                    <label>Fecha Fin</label>
                     <div class="input-group">
                       <div class="input-group-addon">
                         <i class="fa fa-calendar"></i>
@@ -115,11 +115,11 @@
                   </div>
 
                              <div class="form-group">
-                                            <label>Status</label>
+                                            <label>Estado</label>
                                           <select class="form-control regcom select2"  style="width: 100%;"name="status">
-                                               <option value = "">Select</option>
-                                               <option value="1">Active</option>
-                                               <option value="0">Inactive</option>
+                                               <option value = "">Seleccione</option>
+                                               <option value="1">Activo</option>
+                                               <option value="0">Inactivo</option>
                                                
                                            </select>
                                         </div>
@@ -249,7 +249,7 @@ success:function(res){
 $(".promo-add").show();
 console.log(res);
 if(res==1){
-	$(".promo-add").html('<p class="success">Promo Code Entered Successfully</p>');
+	$(".promo-add").html('<p class="success">Código promoción ingresado satisfacoriamente</p>');
 	setTimeout(function(){$(".promo-add").hide(); }, 1500);
 	$('#promocode_reg')[0].reset();
 	}

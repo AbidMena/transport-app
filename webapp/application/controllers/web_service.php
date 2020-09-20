@@ -148,20 +148,20 @@ class web_service extends CI_Controller
 				
 				if($mail_status){
 					$error_list[] = array(
-										'message' => 'Mail Id already in use',
-										'code'    => 'exists'		
+										'message' => 'El correo electrónico ya fué utilizado por otro usuario, favor utilize un correo diferente.',
+										'code'    => 'Aviso'		
 									);
 				}
 				if($user_status){
 					$error_list[] = array(
-										'message' => 'User Name already in use',
-										'code'    => 'exists'		
+										'message' => 'El Usuario ya existe, por favor intente con otro nombre de usuario distinto.',
+										'code'    => 'Aviso'		
 									);
 				}
 				if($mobile_status){
 					$error_list[] = array(
-										'message' => 'Mobile number already in use',
-										'code'    => 'exists'		
+										'message' => 'Este número telefónico ya está siendo usado por otro usuario, por favor ingrese un teléfono distinto.',
+										'code'    => 'Aviso'		
 									);
 				}
 				
@@ -177,7 +177,7 @@ class web_service extends CI_Controller
 				
 				$this->model_web_service->insert_user_details($request);
 				
-				$finresult = array( 'status'  => 'success','message' => 'Successfully Signed up', 'code'    => 'success' ,
+				$finresult = array( 'status'  => 'success','message' => 'Registro exitoso', 'code'    => 'success' ,
 										'token'			=> $this->token_gen( $request->User_name )
 								);
 								
@@ -187,34 +187,22 @@ class web_service extends CI_Controller
 	}
 	
 	public function fetch_cab_details(){
-		$book_date = $_POST["book_date"];
-		$transfertype = $_POST["transfertype"];
-
-		$myDate = new DateTime();
-		$myDate->setTimestamp( strtotime( $book_date) );
-		
-		$time =  $myDate->format("H");
-		
-		if( $time >= 22 ||  $time <= 6){
-			$timetype = 'night';
-		}else{
-			$timetype = 'day';
-		}
-		
-		$request = array(
-			"book_date" => $book_date,
-			"transfertype" => $transfertype
-		);
-
-
-		$request +=  array('timetype' => $timetype);
-	 	 
-		
-		$result = $this->model_web_service->fetch_cabs( $request );
+		$postdata = file_get_contents("php://input");
+		$request = json_decode($postdata); 
+		$result = $this->model_web_service->fetch_cabs( $request->driver_username );
 		$finresult = array('status'  => 'success', 'cabs' => $result);
 		print json_encode( $finresult );
 		
 	}
+
+	public function getMessage(){
+		$postdata = file_get_contents("php://input");
+		$request = json_decode($postdata); 
+		$result = $this->model_web_service->getMessage();
+		header('Content-Type: application/json');
+		echo json_encode( $result );
+	}
+
 	public function load_trips(){
 		
 		$postdata = file_get_contents("php://input");
@@ -228,27 +216,23 @@ class web_service extends CI_Controller
 		
 		$result = $this->model_web_service->load_trips( $request );
 		
-		$success 		= array();
-		$booking 		= array();
-		$Cancelled	= array();
-		
+ 
+		$todayArray 		= array();
+		$historyArray	= array();
+		date_default_timezone_set('America/El_Salvador');
+		$today = date('m/d/Y', time());
 		foreach( $result as $item ){
-			if( $item['status'] == 'Complete'){
-				$success[] = $item;
-			}else if( $item['status'] == 'Booking' ){
-				$booking[] = $item;	
-			}else if( $item['status'] == 'Cancelled' ){
-				$Cancelled[] = $item;	
-			}
-			
+			if( $item['pickup_date'] == $today){
+				$todayArray[] = $item;
+			}else{
+				$historyArray[] = $item;	
+			} 
 		}
 		
 		$finresult = array( 
 													'status'    => 'success', 
-													'all'			  => $result,
-													'booking'   => $booking,
-													'Cancelled' => $Cancelled,
-													'success'   => $success,
+													'today'			  => $todayArray,
+													'history'   => $historyArray
 													
 									 );
 		print json_encode( $finresult );
@@ -349,7 +333,7 @@ class web_service extends CI_Controller
         
         if($result){
 			
-			$finresult[] = array( 'status'  => 'success','message' => 'Successfully Logged in', 'code'    => 'success' ,					
+			$finresult[] = array( 'status'  => 'success','message' => 'Inicio de sesión correcto', 'code'    => 'success' ,					
 									'id'    		=> $result['id'],
 									'mobile'		=> $result['phone'],
 									'username'	=> $result['user_name'],
@@ -358,7 +342,7 @@ class web_service extends CI_Controller
 								);
 			print json_encode($finresult);
 		}else{
-			$finresult[] = array( 'status'  => 'failed','message' => 'Unknown credential , please try again!', 'code'    => 'Login failed' ,
+			$finresult[] = array( 'status'  => 'failed','message' => 'Tus credenciales son incorrectas o tu cuenta está temporalmente inactiva, intentalo de nuevo.', 'code'    => 'Login failed' ,
 								
 								);
 			print json_encode($finresult);
@@ -384,7 +368,7 @@ class web_service extends CI_Controller
                           print json_encode($success_msg);  
 			}else{
 				$error_list[] = array(
-										'message' => 'User Name or Email id Already exists',
+										'message' => 'El usuario ya existe, intenta crear uno nuevo',
 										'code'    => 'User Name or Email id Allready exists'		
 									);
 				$finresult = array( 
@@ -406,7 +390,7 @@ class web_service extends CI_Controller
     {
         $postdata = file_get_contents("php://input");
     	$request = json_decode($postdata);
-         $result = $this->model_web_service->driver_bookings($request);
+         $result = $this->model_web_service->driver_bookings($request->driver_username);
         
         $new_rade 	= array();
 		$complete 	= array();
@@ -459,87 +443,15 @@ class web_service extends CI_Controller
         
          $booking_id= $request->uneaque_id;
         
-         $purpose=$request->purpose;
-         $taxi_type=$request->taxi_type;
-         $package=$request->package;
-         $transfer=$request->transfer;
-         $timetype=$request->timetype;
         
-        $table='cabdetails';
-        $select_data="";
-       // echo $transfer;
+       $table='cabdetails';
         
-        if($purpose=="Point to Point Transfer")
-        { 
-               $select_data="intialkm,intailrate,standardrate" ; 
-        }
-        
-        if($purpose=="Airport Transfer")
-        { 
-               
-            if($transfer=="going")
-            {
-                $select_data="intialkm,intailrate,standardrate" ; 
-            }
-            
-            if($transfer=="coming")
-            {
-                $select_data="fromintialkm,fromintailrate,fromstandardrate";
-            }
-        }
-        
-        if($purpose=="Outstation Transfer")
-        { 
-              
-            if($transfer=="oneway")
-            {
-                $select_data="standardrate" ; 
-            }
-            
-            if($transfer=="round")
-            {
-                $select_data="fromstandardrate";
-            }
-        }
-        
-        if($purpose=="Hourly Rental")
-        { 
-            $select_data="standardrate" ;   
-        }
-
-       $where_con= array();
-             
-        if($purpose!="")
-        {
-            $where_con = array_merge($where_con, array('transfertype' => $purpose));
-        }
-          if($taxi_type!="")
-        {
-            $where_con = array_merge($where_con, array('cartype'=>$taxi_type));
-        }
-         if($taxi_type!="")
-        {
-            $where_con = array_merge($where_con, array('cartype'=>$taxi_type));
-        }
-        if($package!="")
-        {
-            $where_con = array_merge($where_con, array('package' => $package));
-        }
-        if($timetype!="")
-        {
-             $where_con = array_merge($where_con, array('timetype' => $timetype));
-        }
-            
-                $this->db->select($select_data);
-                $this->db->where($where_con);
-                $query  = $this->db->get($table);
-                $result = $query->result_array(); 
+       $query  = $this->db->get($table);
+       $result = $query->result_array(); 
         if(count($result)>0)
         {
             $final_result= array(
-              'status' => "success",
-              'purpose'   => $purpose,
-              'transfer_tyepe'=>$transfer,  
+              'status' => "success",  
               'booking_id'    =>$booking_id,
               'raw_data' => $result
             );
@@ -577,6 +489,54 @@ class web_service extends CI_Controller
                 print json_encode( $finresult );
 	}
 
+	 public function update_driver_car_type(){
+			
+		$postdata = file_get_contents("php://input");
+		$request = json_decode($postdata);
+		
+		//$request->token = $this->extract_token( $request->token );
+		
+		$result = $this->model_web_service->update_driver_car_type($request);
+                
+                 if($result != 'error')
+                  {
+                  $finresult = array( 'status' => 'success', 'cartype' => $result);
+                  }
+                  else{
+                    $finresult = array( 'status' => 'fail');
+                   }
+		
+		 
+                print json_encode( $finresult );
+	}
+
+	public function get_driver_car_type(){
+		$postdata = file_get_contents("php://input");
+		$request = json_decode($postdata);
+		$result = $this->model_web_service->get_driver_car_type($request);
+        print json_encode( $result );
+	}
+
+    public function update_driver_location(){
+			
+		$postdata = file_get_contents("php://input");
+		$request = json_decode($postdata);
+		
+		//$request->token = $this->extract_token( $request->token );
+		
+		$result = $this->model_web_service->update_driver_location($request);
+                
+                 if($result==1)
+                  {
+                  $finresult = array( 'status' => 'success', );
+                  }
+                  else{
+                    $finresult = array( 'status' => 'fail', );
+                   }
+		
+		 
+                print json_encode( $finresult );
+	}
 
          public function set_ride_as_complete()
         {
@@ -621,6 +581,14 @@ class web_service extends CI_Controller
 			}else{
 				echo "No data";
 			}
+		}
+
+		public function fetchDriverLocations(){
+		
+			$query = $this->db->query("SELECT c.cartype, d.user_name, d.name, d.phone, d.email, d.placa,d.latitude, d.longitude FROM cabdetails c JOIN driver_details d ON d.cab_type_id = c.id  where d.user_status = 'Active'");
+			header('Content-Type: application/json');
+			echo json_encode($query->result());
+
 		}
 
 

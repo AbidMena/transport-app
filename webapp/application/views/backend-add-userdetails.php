@@ -17,14 +17,14 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1 class="add_promocode">
-         Add User Details
+         Agregar Detalles de Usuario
           </h1>
 		  
 		 
           <ol class="breadcrumb">
-            <li><a href="<?php echo base_url();?>admin/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="<?php echo base_url();?>admin/dashboard"><i class="fa fa-dashboard"></i> Inicio</a></li>
             <li><a href="#">BU</a></li>
-            <li class="active">Add New</li>
+            <li class="active">Agregar Nuevo</li>
           </ol>
 		
         </section>
@@ -49,15 +49,15 @@
 				       
                               
                                         <div class="form-group">
-                                            <label>Username</label>
-                                           <input class="form-control regcom sample" placeholder="Username" name="username" id="signup-username">
+                                            <label>Usuario</label>
+                                           <input class="form-control regcom sample" placeholder="Usuario" name="username" id="signup-username">
                                         </div>
                                          <div class="form-group">
                                             <label>Password</label>
                                            <input class="form-control regcom" placeholder="Password" name="password" id="signup-password" type="password">
                                         </div>
                                          <div class="form-group">
-                                            <label>Role</label>
+                                            <label>Rol</label>
 											  <select class="form-control select2"  style="width: 100%;" name="role" id="signup-role">
 													<?php   foreach($query1->result_array('role') as $role_get){ ?>
                                                <option value="<?php echo $role_get['rolename']; ?>" ><?php echo $role_get['rolename']; ?></option>
@@ -74,18 +74,18 @@
                                         </div>
                                       
 							 <div class="form-group">
-                    <label>Mobile</label>
+                    <label>Celular</label>
                     <div class="input-group">
                       <div class="input-group-addon">
                         <i class="fa fa-phone"></i>
                       </div>
-                      <input type="number" class="form-control regcom" placeholder="Mobile" name="mobile" id="signup-mobile">
+                      <input type="number" class="form-control regcom" placeholder="Celular" name="mobile" id="signup-mobile">
                     </div><!-- /.input group -->
                   </div><!-- /.form group -->			
 										
                                        <div class="form-group">
                                        
-                                        <input type="button" class="btn btn-primary" value="Submit"  name="Save" id="useradd">
+                                        <input type="button" class="btn btn-primary" value="Guardar"  name="Save" id="useradd">
                                         <button type="reset" class="btn btn-primary">Reset </button>
                                         </div>
                                         </div> 

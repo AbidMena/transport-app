@@ -26,7 +26,7 @@
 						<img class='input-icon icon-20' src='img/icons/user.png'/>
 					</div>
 					</br>
-					
+				<!-- 	
 					<div class='input-box'>
 						<div class="error-container " ng-show="sign_up_form.user_name.$dirty && sign_up_form.user_name.$invalid" >
 							<small class="error	 " ng-show="sign_up_form.user_name.$error.required">{{ 'Enter user name' | langTranslate: appConvertedLang['Enter_user_name'] }}</small>
@@ -36,18 +36,18 @@
 						
 					<input name='user_name' ng-model='signUp.user_name' placeholder="{{ 'User Name' | langTranslate: appConvertedLang['User_Name'] }}" class='color-yellow' type='text' ng-minlength='6' required/>
 						<img class='input-icon icon-20' src='img/icons/user.png'/>
-					</div>
-					</br>
+					</div> 
+					</br>-->
 					
 					<div class='input-box'>
 						<div class="error-container " ng-show="sign_up_form.number.$dirty && sign_up_form.number.$invalid" >
 							<small class="error	 " ng-show="sign_up_form.number.$error.required">{{ 'Enter your number' | langTranslate: appConvertedLang['Enter_your_number'] }}</small>
 							<small class="error	 " ng-show="sign_up_form.number.$error.number">{{ 'Enter valid mobile number' | langTranslate: appConvertedLang['Enter_valid_mobile_number'] }}</small>								
-							<small class="error	 " ng-show="sign_up_form.number.$error.minlength">Enter valid mobile number</small>								
-							<small class="error	 " ng-show="sign_up_form.number.$error.maxlength">Enter valid mobile number</small>								
+							<small class="error	 " ng-show="sign_up_form.number.$error.minlength">Digite 8 caractéres mínimos</small>								
+							<small class="error	 " ng-show="sign_up_form.number.$error.maxlength">Digite 11 caractéres máximos</small>								
 						</div>
 						
-						<input name='number' placeholder="{{ 'Mobile' | langTranslate: appConvertedLang['Mobile'] }}" ng-model='signUp.mobile' type='number' class='color-yellow' type='text' ng-minlength="10" ng-maxlength="10" required />
+						<input name='number' placeholder="{{ 'Mobile' | langTranslate: appConvertedLang['Mobile'] }}" ng-model='signUp.mobile' type='number' class='color-yellow' type='text' ng-minlength="8" ng-maxlength="11" required />
 						<img class='input-icon icon-20' src='img/icons/mobile.png'/>
 						
 					</div>

@@ -16,14 +16,14 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1 class="add_promocode">
-           Edit Places
+           Editar Lugares
           </h1>
 		  
 		 
           <ol class="breadcrumb">
-            <li><a href="<?php echo base_url();?>admin/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li><a href="#">Places</a></li>
-            <li class="active">Edit</li>
+            <li><a href="<?php echo base_url();?>admin/dashboard"><i class="fa fa-dashboard"></i> Inicio</a></li>
+            <li><a href="#">Lugares</a></li>
+            <li class="active">Editar</li>
           </ol>
         </section>
 
@@ -49,7 +49,7 @@
 				
                   <div class="box-body">
 				            <div class="form-group">
-                                            <label>Places</label>
+                                            <label>Lugares</label>
                                            <input class="form-control regcom" id="signup-username" value="<?php echo $row->location; ?>" name="location" >
                                          <input class="form-control regcom11" value="<?php echo $row->id; ?>" name="id" type="hidden" >
                                         </div>
@@ -58,7 +58,7 @@
 										
                                          
                                         <div class="form-group">
-                                        <input type="button" class="btn btn-primary" value="Save Details"  name="Save" id="promoedit">
+                                        <input type="button" class="btn btn-primary" value="Guardar"  name="Save" id="promoedit">
                                        
                                         
                                         </div>

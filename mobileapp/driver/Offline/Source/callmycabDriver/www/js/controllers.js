@@ -24,6 +24,8 @@ App.controller('AppCtrl', function ($cordovaNetwork, $scope, $ionicModal, $timeo
 
     }
 
+   
+
    /* if ($cordovaNetwork.isOffline()) {
         set_net('offline');
     } else {
@@ -62,6 +64,7 @@ App.controller('AppCtrl', function ($cordovaNetwork, $scope, $ionicModal, $timeo
     }
 
 
+
     // Perform the login action when the user submits the login form
     $scope.doLogin = function () {
         console.log('Doing login', $scope.loginData);
@@ -81,6 +84,18 @@ App.controller('AppCtrl', function ($cordovaNetwork, $scope, $ionicModal, $timeo
             reload: true
         });
     };
+
+    $scope.updateLocation = function(){
+        $state.go('app.location', {}, {
+            reload: true
+        });
+    }
+
+    $scope.charges = function(){
+        $state.go('app.charges', {}, {
+            reload: true
+        });
+    }
 
 
    /* $scope.close_app=function(){
@@ -102,6 +117,15 @@ App.controller('landingCtrl', function ($cordovaOauth, $scope, $ionicModal, $tim
         $rootScope.appConvertedLang=data;
     });
 
+    function makeid(length) {
+           var result           = '';
+           var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+           var charactersLength = characters.length;
+           for ( var i = 0; i < length; i++ ) {
+              result += characters.charAt(Math.floor(Math.random() * charactersLength));
+           }
+           return result;
+    }
 
     $scope.facebookLogin = function () {
 
@@ -204,7 +228,7 @@ App.controller('landingCtrl', function ($cordovaOauth, $scope, $ionicModal, $tim
             WebService.show_loading();
 
             promise.then(function (data) {
-
+                console.log(data);
                 data = data[0];
                 //alert(data.status);
                 if (data.status == 'failed') {
@@ -248,13 +272,18 @@ App.controller('landingCtrl', function ($cordovaOauth, $scope, $ionicModal, $tim
     $scope.signUp = {};
     $scope.do_signUp = function (form) {
         var link = 'driver_sign_up';
-
+        var usuario = makeid(6);
         var post_data = {
             'Email': $scope.signUp.mail,
             'Password': $scope.signUp.pwd,
             'Mobile': $scope.signUp.mobile,
-            'User_name': $scope.signUp.user_name,
-            'Name': $scope.signUp.name
+            'User_name': usuario,
+            'Name': $scope.signUp.name,
+            'dui': $scope.signUp.dui,
+            'tarjeta_circulacion' : $scope.signUp.tarjeta_circulacion,
+            'cab_type_id' : $scope.signUp.car_type,
+            'placa' : $scope.signup.placa
+
         }
         var promise = WebService.send_data(link, post_data);
 
@@ -262,7 +291,7 @@ App.controller('landingCtrl', function ($cordovaOauth, $scope, $ionicModal, $tim
         promise.then(function (data) {
             // console.log(data);
             // $ionicLoading.hide();
-            console.log(data.status);
+            console.log(data);
 
             // alert("");
             if (data.status == 'failed') {
@@ -284,8 +313,8 @@ App.controller('landingCtrl', function ($cordovaOauth, $scope, $ionicModal, $tim
 
                 $scope.showAlert = function () {
                     var alertPopup = $ionicPopup.alert({
-                        title: $filter('langTranslate')("ThankYou",$rootScope.appConvertedLang['ThankYou']),
-                        template: $filter('langTranslate')("You are successfully registered",$rootScope.appConvertedLang['You_are_successfully_registered'])
+                        title: '<span class="color-yellow d-block">Registro exitoso</span>',
+                        template:  '<span class="color-yellow d-block">Estimado conductor tiene un mes de prueba gratis para usar la app difer al finalizar se le enviara un msj para información del costo de suscripción</span>'
                     });
                     alertPopup.then(function (res) {
                         $scope.signup.hide();

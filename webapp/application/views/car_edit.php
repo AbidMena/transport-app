@@ -16,14 +16,14 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1 class="edit_promo">
-         Edit Car Details
+         Editar Detalles Carro 
           </h1>
 		  
 		 
           <ol class="breadcrumb">
-            <li><a href="<?php echo base_url();?>admin/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li><a href="<?php echo base_url();?>admin/view_car">Cars</a></li>
-            <li class="active"> Edit Car Details</li>
+            <li><a href="<?php echo base_url();?>admin/dashboard"><i class="fa fa-dashboard"></i> Inicio</a></li>
+            <li><a href="<?php echo base_url();?>admin/view_car">Carros</a></li>
+            <li class="active"> Editar Detalles Carro </li>
           </ol>
         </section>
 
@@ -55,15 +55,15 @@ if(($this->session->flashdata('item'))) {
     <form role="form" method="post" action="<?php echo base_url('admin/edit_car_details');?>" class="validate" enctype="multipart/form-data">
       <div class="col-lg-6">
           <div class="form-group">
-            <label>Car Type</label>
+            <label>Tipo de Carro</label>
               <input   name="car_type" type="text" class="form-control" value="<?php echo $edit_car_details->car_type;?>"  required>
           </div> 
 
            <div class="form-group">
-            <label>Status</label>
+            <label>Estado</label>
               <select class="form-control required" name="status">
-                  <option <?php if ($edit_car_details->status == 'Active' ) echo 'selected' ; ?> value="Active">Active</option>
-                   <option <?php if ($edit_car_details->status == 'Inactive' ) echo 'selected' ; ?> value="Inactive">InActive</option>
+                  <option <?php if ($edit_car_details->status == 'Active' ) echo 'selected' ; ?> value="Active">Activo</option>
+                   <option <?php if ($edit_car_details->status == 'Inactive' ) echo 'selected' ; ?> value="Inactive">InActivo</option>
                  
                  
                 </select>
@@ -73,7 +73,7 @@ if(($this->session->flashdata('item'))) {
             <div class="row">
                <div class="col-lg-12">
                   <div class="col-sm-6">
-                     <label>Car Image</label>
+                     <label>Imagen Carro</label>
                      <input class="regcom"  type="file"  name="car_image" accept="image/*" class="" size="20" >
                   </div>
                    <div class="col-sm-6 text-right edit_image">
@@ -84,7 +84,7 @@ if(($this->session->flashdata('item'))) {
             </div>
          </div>
          <div class="form-group">
-            <input type="submit" class="btn btn-primary" value="Save">
+            <input type="submit" class="btn btn-primary" value="Guardar">
          </div>
       </div>
       </form>

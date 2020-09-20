@@ -1,4 +1,4 @@
-<ion-modal-view id='sign-up-page' class='set-bg' class='bg-grey'>
+<ion-modal-view id='sign-up-page' class='set-bg' class='bg-grey' cache-view="false">
   
 <ion-content >
 	<div  style='height: 100%;'>
@@ -22,8 +22,21 @@
 						<img class='input-icon icon-20' src='img/icons/user.png'/>
 					</div>
 					</br>
-					
-					<div class='input-box'>
+					<div class="input-box">
+						<label style="color:#FFF">Elige el tipo de vehículo que manejas:</label>
+						<select class="item-input select-control" name="cartype" ng-model="signUp.car_type">
+							<option value="" disabled selected hidden>Seleccionar...</option>
+						    <option value="1">Sedan</option>
+						    <option value="2">Pickup</option>
+						    <option value="3">Camión</option>
+						    <option value="4">Motocicleta</option>
+						    <option value="5">Taxi</option>
+						    <option value="6">Camioneta</option>
+						    <option value="7">Mototaxi</option>
+						    <option value="8">Microbus</option>
+						</select>
+					</div>
+				<!-- 	<div class='input-box'>
 						<div class="error-container " ng-show="sign_up_form.user_name.$dirty && sign_up_form.user_name.$invalid" >
 							<small class="error	 " ng-show="sign_up_form.user_name.$error.required"> {{ 'Enter user name' | langTranslate: appConvertedLang['Enter_user_name'] }}</small>
 							<small class="error	 " ng-show="sign_up_form.user_name.$error.minlength"> {{ 'Minimum 6 characters' | langTranslate: appConvertedLang['Minimum_6_characters'] }}</small>
@@ -32,18 +45,53 @@
 						
 						<input name='user_name' ng-model='signUp.user_name' placeholder=" {{ 'User Name' | langTranslate: appConvertedLang['User_Name'] }}" class='color-yellow' type='text' ng-minlength='6' required/>
 						<img class='input-icon icon-20' src='img/icons/user.png'/>
+					</div> -->
+					</br>
+
+					<div class='input-box'>
+						<div class="error-container " ng-show="sign_up_form.dui.$dirty && sign_up_form.dui.$invalid" >
+							<small class="error	 " ng-show="sign_up_form.dui.$error.required">Por favor ingrese su número de DUI</small>
+							<small class="error	 " ng-show="sign_up_form.dui.$error.minlength"> Mínimo 9 caractéres</small>
+							
+						</div>
+						
+						<input name='dui' ng-model='signUp.dui' placeholder="Digite su número de DUI" class='color-yellow' type='number' ng-minlength='9' ng-maxlength='9' required/>
+						<img class='input-icon icon-20' src='img/icons/card.png'/>
 					</div>
 					</br>
-					
+
+					<div class='input-box'>
+						<div class="error-container " ng-show="sign_up_form.placa.$dirty && sign_up_form.placa.$invalid" >
+							<small class="error" ng-show="sign_up_form.placa.$error.required">Por favor ingrese la placa del vehículo</small>
+						</div>
+						
+						<input name='placa' ng-model='signUp.placa' placeholder="Digite a placa del vehículo" class='color-yellow' type='text' required="required"/>
+						<img class='input-icon icon-20' src='img/icons/card.png'/>
+					</div>
+					</br>
+
+
+					<div class='input-box'>
+						<div class="error-container " ng-show="sign_up_form.tarjeta_circulacion.$dirty && sign_up_form.tarjeta_circulacion.$invalid" >
+							<small class="error	 " ng-show="sign_up_form.tarjeta_circulacion.$error.required">Por favor ingrese su número de licencia de conducir</small>
+							<small class="error	 " ng-show="sign_up_form.tarjeta_circulacion.$error.minlength">Mínimo 10 caractéres</small>
+							
+						</div>
+						
+						<input name='tarjeta_circulacion' ng-model='signUp.tarjeta_circulacion' placeholder="Digite su número de licencia" class='color-yellow' type='number' ng-minlength='10' required/>
+						<img class='input-icon icon-20' src='img/icons/card.png'/>
+					</div>
+					</br>
+				 
 					<div class='input-box'>
 						<div class="error-container " ng-show="sign_up_form.number.$dirty && sign_up_form.number.$invalid" >
 							<small class="error	 " ng-show="sign_up_form.number.$error.required">{{ 'Enter your number' | langTranslate: appConvertedLang['Enter_your_number'] }}</small>
-							<small class="error	 " ng-show="sign_up_form.number.$error.number">{{ 'Enter valid mobile number' | langTranslate: appConvertedLang['Enter_valid_mobile_number'] }}</small>								
-							<small class="error	 " ng-show="sign_up_form.number.$error.minlength">{{ 'Enter valid mobile number' | langTranslate: appConvertedLang['Enter_valid_mobile_number'] }}</small>								
-							<small class="error	 " ng-show="sign_up_form.number.$error.maxlength">{{ 'Enter valid mobile number' | langTranslate: appConvertedLang['Enter_valid_mobile_number'] }}</small>								
+							<small class="error	 " ng-show="sign_up_form.number.$error.number">Por favor ingrese un teléfono válido</small>								
+							<small class="error	 " ng-show="sign_up_form.number.$error.minlength">El campo teléfono debe ser mínimo de 8 caractéres</small>								
+							<small class="error	 " ng-show="sign_up_form.number.$error.maxlength">El campo teléfono debe ser máximo de 11 caractéres</small>								
 						</div>
 						
-						<input name='number' placeholder="{{ 'Mobile' | langTranslate: appConvertedLang['Mobile'] }}" ng-model='signUp.mobile' type='number' class='color-yellow' type='text' ng-minlength="10" ng-maxlength="10" required />
+						<input name='number' placeholder="Ingrese su número telefónico" ng-model='signUp.mobile' type='number' class='color-yellow' type='text' ng-minlength="8" ng-maxlength="11" required />
 						<img class='input-icon icon-20' src='img/icons/mobile.png'/>
 						
 					</div>
@@ -55,7 +103,7 @@
 							<small class="error	 " ng-show="sign_up_form.mail.$error.email"> {{ 'Enter valid email' | langTranslate: appConvertedLang['Enter_valid_email'] }}</small>								
 						</div>
 						
-						<input name='mail' type='email' required ng-model='signUp.mail' placeholder="{{ 'Mail' | langTranslate: appConvertedLang['Mail'] }}" class='color-yellow' type='text' />
+						<input name='mail' type='email' required ng-model='signUp.mail' placeholder="{{ 'Mail' | langTranslate: appConvertedLang['Mail'] }}" class='color-yellow' type='email' />
 						<img class='input-icon icon-20' src='img/icons/mail.png'/>
 					</div>
 					</br>

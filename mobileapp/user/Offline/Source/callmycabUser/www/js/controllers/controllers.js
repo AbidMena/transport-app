@@ -26,6 +26,16 @@ App.controller('AppCtrl', function($scope,$rootScope,$cordovaNetwork, $ionicModa
 			}
 			
 		}
+
+		function makeid(length) {
+		   var result           = '';
+		   var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+		   var charactersLength = characters.length;
+		   for ( var i = 0; i < length; i++ ) {
+		      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+		   }
+		   return result;
+		}
 	  	
 		/*if( $cordovaNetwork.isOffline() ){
 			
@@ -156,9 +166,7 @@ App.controller('AppCtrl', function($scope,$rootScope,$cordovaNetwork, $ionicModa
   
 	$scope.signUp = {};
 	$scope.do_signUp = function( form ) {
-		//$state.go('view', {movieid: 1});
-		
-		
+		//$state.go('view', {movieid: 1});	
 
 		if(
 				 form.$valid 
@@ -167,25 +175,18 @@ App.controller('AppCtrl', function($scope,$rootScope,$cordovaNetwork, $ionicModa
 			){
 		 
 			 var link = 'sign_up';
-				
+		    var username =  makeid(6);
 			var post_data = {  
 								'secret_key': secret_key,
 								'Email'     : $scope.signUp.mail ,
 								'Password'  : $scope.signUp.pwd ,
 								'Mobile'    : $scope.signUp.mobile ,
-								'User_name' : $scope.signUp.user_name ,
+								'User_name' : username ,
 								'Name'			: $scope.signUp.name,
+								'car_type' : $scope.signUp.car_type
 							 }
 		
-		/*		
-		var post_data = {  
-								'Email'     : "mynameisibnu@gmail.com" ,
-								'Password'  : "123456" ,
-								'Mobile'    : "9946973457" ,
-								'User_name' : "ibkarbin" ,
-								'Name'			: "ibnu",
-							 }
-	  */	
+	 
   		WebService.show_loading();	
 			 
 			 var promise = WebService.send_data( link,post_data);
@@ -199,7 +200,7 @@ App.controller('AppCtrl', function($scope,$rootScope,$cordovaNetwork, $ionicModa
 					$scope.signUp.error_list = data.error_list;
 					
 					$ionicPopup.alert({
-						title: '<p class="text-center color-yellow">FAILED</p>',
+						title: '<p class="text-center color-yellow">Aviso</p>',
 						
 						template: "<div ng-show='signUp.error_list.length' class='text-center  m-top-20'>"+
 													"<span ng-repeat='error in signUp.error_list' class='color-yellow d-block'>" + 
@@ -275,8 +276,9 @@ App.controller('AppCtrl', function($scope,$rootScope,$cordovaNetwork, $ionicModa
 		 
 		 promise.then(function(data){  
 			 $rootScope.Trips = data;
+			 console.log(data);
 			 //serv.set_trip_tab();	
-			 $rootScope.active_trip = $rootScope.Trips.all;
+			 $rootScope.active_trip = $rootScope.Trips.today;
 			 
 			 $ionicLoading.hide();
 		 });
@@ -302,7 +304,7 @@ App.controller('AppCtrl', function($scope,$rootScope,$cordovaNetwork, $ionicModa
 	}
 	
 	 $scope.facebookLogin = function () {
-      $cordovaOauth.facebook("415834555280405", ["email"]).then(function (result) {
+      $cordovaOauth.facebook("337843744035504", ["email"]).then(function (result) {
         $scope.oauthResult = result;
 				//alert(JSON.stringify($scope.oauthResult,null,4))
 					WebService.show_loading();	

@@ -18,12 +18,12 @@
         <section class="content-header">
     
 		
-		     <h1 class="page-header">Point to Point Transfer <a href ="<?php echo base_url();?>admin/taxi_details"  class="btn btn-default">Add New</a></h1>
+		     <h1 class="page-header">Transferencia Punto a Punto<a href ="<?php echo base_url();?>admin/taxi_details"  class="btn btn-default">Agregar Nuevo</a></h1>
        
           <ol class="breadcrumb">
-            <li><a href="<?php echo base_url();?>admin/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="<?php echo base_url();?>admin/dashboard"><i class="fa fa-dashboard"></i> Inicio</a></li>
             <li><a href="#">TD</a></li>
-            <li class="active">Point to Point Transfer</li>
+            <li class="active">Transferencia Punto a Punto</li>
           </ol>
         </section>
 
@@ -49,12 +49,12 @@
                                     <thead>
                                         <tr>
                                             <th>Taxi</th>
-                                            <th>Transfer Type</th>
-                                            <th>Intial <?php echo $mesr;?></th>
-                                            <th>Intial Rate</th>
-                                            <th>Standard Rate</th>
-                                              <th>Time</th>
-                                           <th>Action</th>
+                                            <th>Tipo Transferencia</th>
+                                            <th>Inicial <?php echo $mesr;?></th>
+                                            <th>Tarifa Inicial</th>
+                                            <th>Tarifa estandar</th>
+                                              <th>Hora</th>
+                                           <th>Acción</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -121,7 +121,7 @@ $(function () {
 	
  $(document).on('click',"#example1 .delete",function(){
 							
-			var r = confirm("Are you sure want to delete the Taxi details ");
+			var r = confirm("¿Está seguro que quiere eliminar los detalles del taxi? ");
 			if (r == true) {
 				var th=$(this);			
 				var id = $(this).attr('title');
@@ -135,7 +135,7 @@ $(function () {
             $(".editbook").show();
 					console.log(cancel);
 					if(cancel==1){
-            $(".editbook").html('<p class="success">Delete Successfully</p>');
+            $(".editbook").html('<p class="success">Eliminado satisfactoriamente</p>');
   setTimeout(function(){$(".editbook").hide(); }, 3000);
 					th.hide();
 					location.reload();

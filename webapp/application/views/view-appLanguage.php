@@ -16,12 +16,12 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
            <div class="col-lg-12">
-                    <h1 class="page-header">Add Driver Apps Language Details</h1>
+                    <h1 class="page-header">Agregar Detalles de Lenguaje de la App de Conductor</h1>
                 </div>
           <ol class="breadcrumb">
-            <li><a href="<?php echo base_url();?>admin/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li><a href="#">Lang</a></li>
-            <li class="active">View All</li>
+            <li><a href="<?php echo base_url();?>admin/dashboard"><i class="fa fa-dashboard"></i> Inicio</a></li>
+            <li><a href="#">Leng</a></li>
+            <li class="active">Ver Todos</li>
           </ol>
         </section>
 
@@ -40,11 +40,11 @@
                       <thead>
                           <tr>
                               <th>ID</th>
-                              <th>Language</th>
+                              <th>Lenguaje</th>
                             
-                              <th>Set as App's Language</th>
-                              <th>Status</th>
-                              <th>Action</th>
+                              <th>Agregar Lenguaje de App de Conductor</th>
+                              <th>Estado</th>
+                              <th>Acción</th>
                           </tr>
                       </thead>
                       <tbody>
@@ -96,7 +96,7 @@
                     <div class="col-xs-6">
                     <div class="box box-default">
                     <div class="box-header with-border">
-                      <h3 class="box-title">Add New Language</h3>
+                      <h3 class="box-title">Agregar Nuevo Lenguaje</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -104,10 +104,10 @@
                         <div class="col-md-6">
 
                           <div class="form-group">
-                            <label for="exampleInputEmail1">New Language</label>
-                            <input type="text" class="form-control" id="new_lang" name="new_lang" placeholder="Enter New Language">
+                            <label for="exampleInputEmail1">Nuevo Lenguaje</label>
+                            <input type="text" class="form-control" id="new_lang" name="new_lang" placeholder="Introducir Nuevo Lenguaje">
                           </div>
-                          <input class="btn btn-primary" type="button" value="Add" id="newLang" >
+                          <input class="btn btn-primary" type="button" value="Agregar" id="newLang" >
 
                         </div>
 
@@ -128,7 +128,7 @@
             <div class="col-xs-6" id="EditModify">
             <div class="box box-default">
             <div class="box-header with-border">
-              <h3 class="box-title">Select Language</h3>
+              <h3 class="box-title">Seleccionar Lenguaje</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -136,9 +136,9 @@
                 <div class="col-md-6">
                   <div class="form-group">
 
-                    <label>Select language for setting values</label>
+                    <label>Seleccionar Lenguaje de configuración</label>
                     <select style="width: 100%;" class="form-control se" tabindex="-1" aria-hidden="true" id="languageSelect">
-                      <option selected="selected">Select</option>
+                      <option selected="selected">Seleccionar</option>
                       <?php foreach ($allLanguages as $key) {
                         ?>
                         <option value="<?php echo $key['language_name'];?>" ><?php echo $key['language_name'];?></option>
@@ -213,7 +213,7 @@
 
                  </div>
                  <input type="hidden" id="hidden_lang" name="hidden_lang" val="" required>
-                 <input class="btn btn-primary" type="submit" value="Save" style="margin-left:1%;">
+                 <input class="btn btn-primary" type="submit" value="Guardar" style="margin-left:1%;">
               </div>
             </div>
           </form>
@@ -316,7 +316,7 @@
     })
 
     function deleteLang(id){
-      var r = confirm("Do you want to delete? ");
+      var r = confirm("¿Quieres eliminar el lenguaje? ");
       if (r == true) {
         $.ajax({
           url:'<?php echo base_url();?>admin/deleteAppLanguage',
@@ -324,9 +324,9 @@
           data:{'id':id},
           success:function(data){
             if(data==0){
-              alert("Sorry Could't delete the record");
+              alert("Lo sentimos, no se pudo eliminar el registro");
             }else{
-              alert("deleted Successfully");
+              alert("Eliminado Satisfactoriamente");
               location.reload();
             }
           }
@@ -355,7 +355,7 @@
     });
 
     function setAppLanguage(id,language){
-        var r = confirm("Do you want to Set '"+ language + "' as App Language?");
+        var r = confirm("Quieres establecer '"+ language + "' como Lenguage de la App?");
         if (r == true) {
           $.ajax({
   					url:'<?php echo base_url();?>admin/setAppDefaultLanguage',
@@ -365,7 +365,7 @@
              if(data==1){
                location.reload();
              }else {
-               alert("Could't set App Language");
+               alert("No se pudo establecer el lenguaje");
              }
 
   					}

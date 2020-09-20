@@ -17,14 +17,14 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1 class="add_promocode">
-           Add Places
+           Agregar Lugares
           </h1>
 		  
 		 
           <ol class="breadcrumb">
-            <li><a href="<?php echo base_url();?>admin/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li><a href="#">Places</a></li>
-            <li class="active">Add New</li>
+            <li><a href="<?php echo base_url();?>admin/dashboard"><i class="fa fa-dashboard"></i> Inicio</a></li>
+            <li><a href="#">Lugares</a></li>
+            <li class="active">Agregar Nuevo</li>
           </ol>
         </section>
 
@@ -44,15 +44,15 @@
 				
                   <div class="box-body">
 				             <div class="form-group">
-                                            <label>Places</label>
-                                           <input class="form-control regcom11" placeholder="Places" name="location" id="places">
+                                            <label>Lugares</label>
+                                           <input class="form-control regcom11" placeholder="Lugares" name="location" id="places">
                                         </div>
                                          
                                         
                                         
                                           <div class="form-group">
                                        
-                                        <input type="button" class="btn btn-primary " value="Submit "  name="Save" id="promoadd">
+                                        <input type="button" class="btn btn-primary " value="Guardar "  name="Save" id="promoadd">
                                         <button type="reset" class="btn btn-primary">Reset </button>
                                         </div>
                                      

@@ -24,10 +24,10 @@
 					
 					<div class='input-box'>
 						<div class="error-container " ng-show="login_form.mail.$dirty && login_form.mail.$invalid" >
-							<small class="error	 " ng-show="login_form.mail.$error.required">{{ 'Enter user name / email / mobile' | langTranslate: appConvertedLang['Enter_username_email_mobile'] }}</small>
+							<small class="error	 " ng-show="login_form.mail.$error.required">El correo o teléfono ingresado no es válido por favor intentelo nuevamente</small>
 							<!-- <small class="error	pull-left m-left-30" ng-show="sign_in_form.mail.$error.email">Enter valid email</small>-->									
 						</div>
-						<input name='mail' ng-model='login.mail' required placeholder="{{ 'Mobile / User Name / Email' | langTranslate: appConvertedLang['Mobile_User_Name_Email'] }}" class='color-yellow' type='text' />
+						<input name='mail' ng-model='login.mail' required placeholder="Ingrese su correo/telefono" class='color-yellow' type='text' />
 						<img class='input-icon icon-20' src='img/icons/mobile.png'/>
 					</div>
 					</br>
@@ -40,9 +40,7 @@
 						<img class='input-icon icon-20' src='img/icons/lock.png'/>
 					</div>
 					<input ng-click='doLogin(login_form)'  class='btn bg-yellow color-white m-top-20 big-font' type='button' value="{{ 'SIGN IN' | langTranslate: appConvertedLang['SIGN_IN'] }}" /> 
-					<div class='text-center m-top-20'>
-						<a href='' class='color-white ' >{{ 'Forgot Password ?' | langTranslate: appConvertedLang['Forgot_Password'] }}</a>
-					</div>
+					 
 				</div>	
 			</div>
 		</div>

@@ -1,0 +1,92 @@
+<ion-view  class='bg-grey'>
+	<ion-nav-title>
+	  <div class='color-yellow text-center'>Perfil</div>
+  </ion-nav-title>
+	<ion-content  >
+	<div  style='height: 100%;'>
+	  <div class='content-box'>
+			<div id='login-from-box' class='m-top-20 settings' >
+				<div style='padding: 35px 0;' class='main-container'>
+					
+					<!-- <div ng-show='signUp.error_list.length' class='text-center  m-top-20'>
+						<span ng-repeat='error in signUp.error_list' class="error d-block">{{error.message}}</span>
+					</div> -->                               
+					
+					<div class='input-box'>
+						<input ng-disabled='true' value='Usuario : {{user_data.User_name}}'  class='color-gery' type='text' />
+						<img class='input-icon icon-20' src='img/icons/user.png'/>
+					</div>
+					</br>
+				 
+				  <div class='input-box'>
+						<input  ng-disabled='true'  value='Teléfono : {{user_data.Mobile}}' class='color-gery' />
+						<img class='input-icon icon-20' src='img/icons/mobile.png'/>
+					</div>
+					</br>
+					
+					<div class='input-box'>
+						<input name='mail' type='email' ng-disabled='true'  value='Correo electrónico : {{user_data.Email}}' class='color-gery' type='text' />
+						<img class='input-icon icon-20' src='img/icons/mail.png'/>
+					</div>
+					</br>
+					<div class="input-box">
+						<label style="color:#FFF">Cambiar tipo de vehículo:</label>
+						<select class="item-input select-control" name="cartype" ng-model="signUp.car_type">
+							<option value="" disabled selected hidden>Seleccionar...</option>
+						    <option value="1">Sedan</option>
+						    <option value="2">Pickup</option>
+						    <option value="3">Camión</option>
+						    <option value="4">Motocicleta</option>
+						    <option value="5">Taxi</option>
+						    <option value="6">Camioneta</option>
+						    <option value="7">Mototaxi</option>
+						</select>
+						</div>
+						<input ng-click='update_car_type(sign_up_form)'  class='btn bg-yellow color-white big-font m-top-20' type='button' value='Guardar cambios' /> 
+				</div>	
+				<p  class="text-center color-yellow bg-dark1 p-head no-margin"> Cambiar contraseña</p>
+					<div id='update-form' class='bg-' ng-form='sign_up_form' >
+						
+                        
+                        <div class='input-box'>
+							
+                            <input name='old_pwd' ng-model='signUp.old_pwd' placeholder='Contraseña actual' class='color-yellow' ng-minlength='6' type='password' required/>
+<small class="error	 " ng-show="sign_up_form.old_pwd.$error.minlength">Mínimo 6 caractéres</small>				                            
+                            
+							<img class='input-icon icon-20' src='img/icons/lock.png'/>
+						</div>
+                        </br> 
+                        
+                        <div class='input-box'>
+							<div class="error-container " ng-show="sign_up_form.pwd.$dirty && sign_up_form.pwd.$invalid" >
+								<small class="error	 " ng-show="sign_up_form.pwd.$error.required">Ingresar nueva contraseña</small>
+								<small class="error	 " ng-show="sign_up_form.pwd.$error.minlength">Mínimo 6 caractéres</small>								
+							</div>
+							<input name='pwd' ng-model='signUp.pwd' placeholder='Nueva contraseña' class='color-yellow' ng-minlength='6' type='password' required/>
+							<img class='input-icon icon-20' src='img/icons/lock.png'/>
+						</div>
+                        
+                        
+                        
+						</br>
+						
+						<div class='input-box'>
+							<div class="error-container" ng-show="sign_up_form.pwd.$dirty ">
+								<small class="error " ng-show="(signUp.pwd != signUp.c_pwd) ">Las contraseñas no coinciden.</small>
+
+							</div>
+							<input name='c_pwd' ng-model='signUp.c_pwd' placeholder='Confirmar contraseña' class='color-yellow' type='password' required/>
+							<img class='input-icon icon-20' src='img/icons/lockTick.png'/>
+						</div>
+					   </br>
+						<input ng-click='do_update(sign_up_form)'  class='btn bg-yellow color-white big-font m-top-20' type='button' value='Cambiar contraseña' /> 
+						
+					</div>
+					
+			</div>
+		</div>
+	</div>
+	<div class='color-white text-center net-error' >No posee conexión a internet!</div>	
+  </ion-content>
+ 
+</ion-view> 

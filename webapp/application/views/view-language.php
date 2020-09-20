@@ -17,13 +17,13 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
            <div class="col-lg-12">
-                    <h1 class="page-header">Add Language Details<a href ="<?php echo base_url();?>admin/add_language"  class="btn btn-default">Add New</a></h1>
+                    <h1 class="page-header">Agregar Detalles de Lenguaje<a href ="<?php echo base_url();?>admin/add_language"  class="btn btn-default">Agregar Nuevo</a></h1>
                    
                 </div>
           <ol class="breadcrumb">
-            <li><a href="<?php echo base_url();?>admin/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li><a href="#">Lang</a></li>
-            <li class="active">View All</li>
+            <li><a href="<?php echo base_url();?>admin/dashboard"><i class="fa fa-dashboard"></i> Inicio</a></li>
+            <li><a href="#">Leng</a></li>
+            <li class="active">Ver Todos</li>
           </ol>
         </section>
 
@@ -45,9 +45,9 @@
                                 
                                     <thead>
                                         <tr>
-                                            <th>Languages </th>                                           
-                                            <th>Created Date</th>
-                                            <th>Action</th>
+                                            <th>Lenguajes </th>                                           
+                                            <th>Fecha Creación</th>
+                                            <th>Acción</th>
                                             
                                         </tr>
                                     </thead>
@@ -107,7 +107,7 @@
    $(function () {
 	   $(document).on('click',"#example1 .delete",function(){	
 							
-			var r = confirm("Are you sure want to delete the Language ");
+			var r = confirm("¿Está seguro de eliminar el lenguaje? ");
 			if (r == true) {
 				var th=$(this);			
 				var id = $(this).attr('title');

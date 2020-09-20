@@ -17,12 +17,12 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Driver Details 
+            Detalles de Conductor
           </h1>
           <ol class="breadcrumb">
-            <li><a href="<?php echo base_url();?>admin/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="<?php echo base_url();?>admin/dashboard"><i class="fa fa-dashboard"></i> Inicio</a></li>
             <li><a href="#">DM</a></li>
-            <li class="active">View All</li>
+            <li class="active">Ver Todos</li>
           </ol>
         </section>
 
@@ -44,14 +44,14 @@
                                 
                                     <thead>
                                         <tr>
-                                            <th>username</th>
-                                            <th>Phone</th>
-                                            <th>Address</th>
-                                            <th>License No</th>
-                                            <th>Car Type</th>
-                                            <th>  Car No</th>
+                                            <th>Usuario</th>
+                                            <th>Celular</th>
+                                            <th>Dirección</th>
+                                            <th>No. Licencia</th>
+                                            <th>Tipo Carro</th>
+                                            <th>No. Carro</th>
 											<th> Rating</th>
-                                            <th>Action</th>
+                                            <th>Acción</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -122,7 +122,7 @@
 	   $(document).on('click',"#example1 .assess",function(){
      
 	   			
-			var r = confirm("Are you sure want to Approval");
+			var r = confirm("¿Está seguro que quiere aprobar este registro?");
 			if (r == true) {
 				var th=$(this);			
 				var id = $(this).attr('title');								
@@ -147,7 +147,7 @@
  $(document).on('click',"#example1 .delete",function(){
 			
 							
-			var r = confirm("Are you sure want to delete the driver details ");
+			var r = confirm("¿Está seguro que quiere eliminar los detalles del conductor?");
 			if (r == true) {
 				var th=$(this);			
 				var id = $(this).attr('title');

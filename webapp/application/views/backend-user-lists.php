@@ -18,11 +18,11 @@
       <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
-           <h1 class="page-header">Backend User Details <a class="btn btn-default" href="<?php echo base_url();?>admin/add_backend_user">Add New</a></h1>
+           <h1 class="page-header">Backend Detalles Usuario <a class="btn btn-default" href="<?php echo base_url();?>admin/add_backend_user">Agregar Nuevo</a></h1>
           <ol class="breadcrumb">
-            <li><a href="<?php echo base_url();?>admin/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="<?php echo base_url();?>admin/dashboard"><i class="fa fa-dashboard"></i> Inicio</a></li>
             <li><a href="#">BU</a></li>
-            <li class="active">Backend User</li>
+            <li class="active">Backend Usuario</li>
           </ol>
         </section>
 
@@ -109,7 +109,7 @@
    $(function () {
 	   $(document).on('click',"#example1 .delete",function(){	
 							
-			var r = confirm("Are you sure want to delete the user details ");
+			var r = confirm("¿Está seguro que quiere eliminar los detalles del usuario? ");
 			if (r == true) {
 				var th=$(this);			
 				var id = $(this).attr('title');

@@ -17,12 +17,12 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-           Wallet
+           Billetera
           </h1>
           <ol class="breadcrumb">
-            <li><a href="<?php echo base_url();?>admin/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li><a href="#">Wallets</a></li>
-            <li class="active">View All</li>
+            <li><a href="<?php echo base_url();?>admin/dashboard"><i class="fa fa-dashboard"></i> Inicio</a></li>
+            <li><a href="#">Billetera</a></li>
+            <li class="active">Ver todos</li>
           </ol>
         </section>
 
@@ -44,10 +44,10 @@
 				  
                     <thead>
                       <tr>
-                        <th>Username</th>
-                        <th>Mobile</th>
+                        <th>Usuario</th>
+                        <th>Celular</th>
                         <th>Email</th>
-						<th>Wallet Balance</th>
+						<th>Saldo de billetera</th>
                       </tr>
                     </thead>  
 					  <?php

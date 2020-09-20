@@ -16,14 +16,14 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1 class="edit_promo">
-         Settings
+         Configuraciones
           </h1>
 		  
 		 
           <ol class="breadcrumb">
-            <li><a href="<?php echo base_url();?>admin/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="<?php echo base_url();?>admin/dashboard"><i class="fa fa-dashboard"></i> Inicio</a></li>
             
-            <li class="active">Settings</li>
+            <li class="active">Configuraciones</li>
           </ol>
         </section>
 
@@ -59,7 +59,7 @@ if(($this->session->flashdata('item'))) {
                                    <?php echo form_open_multipart('admin/upload');?>
                                    
                                          <div class="form-group">
-                                            <label>Site Title</label>
+                                            <label>Titulo del Sitio</label>
                                         <input  id="title" name="title" type="text" class="form-control " value="<?php echo $row->title; ?>">
                                         </div>
                                        
@@ -76,7 +76,7 @@ if(($this->session->flashdata('item'))) {
 										   $logo =$row->logo;
 										   if($logo){
 											   ?>
-                                               <img src="<?php echo base_url();?><?php echo $row->logo; ?>">
+                                               <img src="<?php echo base_url();?><?php echo $row->logo.'?id='.rand(); ?>">
 											   <?php
 										   }
 										   ?>
@@ -88,13 +88,13 @@ if(($this->session->flashdata('item'))) {
                                          <div class="form-group">
                                             <label>Fav Icon </label>
                                            <input   name="favicon"  id="favicon" type="file" value="<?php echo $row->favicon; ?>">
-										   Please select an image 15px/15px
+										   Por favor seleccione una imagen 15px/15px
                                           
                                            
                                         </div>
                                          
                                          <div class="form-group">
-                                            <label>Places </label>
+                                            <label>Lugares </label>
                                                <select class="form-control select2"  style="width: 100%;" name="places" id="places">
                                                <option value="google"<?php if($row->places == 'google') echo 'selected'; ?> >Google Map</option>
                                                <!-- <option value="default" <?php if($row->places == 'default') echo 'selected'; ?>>Default</option>-->
@@ -107,7 +107,7 @@ if(($this->session->flashdata('item'))) {
 						
 						?>
 										<div class="form-group">
-                                            <label>Language </label>
+                                            <label>Lenguaje </label>
                                           <select class="form-control select2"  style="width: 100%;" name="languages" id="languages">
                                                 <?php
 										   	
@@ -138,7 +138,7 @@ if(($this->session->flashdata('item'))) {
                                                   </select>
                                         </div>
 										<div class="form-group ">
-                                            <label>Currency</label>
+                                            <label>Moneda</label>
                                            <select class="form-control regcom select2"  style="width: 100%;" name="currency"  id="currency">
 										   <?php
 										   	$query2 = $this->db->query("SELECT DISTINCT`currrency_symbol`,`currency_name`,currency_code FROM `countries` where `currrency_symbol` IS NOT NULL  ");
@@ -159,39 +159,16 @@ if(($this->session->flashdata('item'))) {
                                         </div>
 										 <div class="form-group">
 										
-                                            <label>Measurements </label>
+                                            <label>Medidas </label>
                                           <select class="form-control select2"  style="width: 100%;" name="measurements" id="measurements">
-                                               <option value="km"<?php if($row->measurements == 'km') echo 'selected'; ?> >Kilometer</option>
-                                               <option value="mi" <?php if($row->measurements == 'mi') echo 'selected'; ?>>Miles</option>
+                                               <option value="km"<?php if($row->measurements == 'km') echo 'selected'; ?> >Kilometros</option>
+                                               <option value="mi" <?php if($row->measurements == 'mi') echo 'selected'; ?>>Millas</option>
                                                
                                                   </select>
                                            
                                         </div>
-										<div class="form-group">
-										
-                                            
-                      <label>Payment option</label><br>
-                    
-                       <?php $paypal_option = explode(",", $row->paypal_option); ?>
+									 
  
-                        <input type="checkbox" name="paypal_option[]" value="PayPal"  <?php if(in_array("PayPal", $paypal_option)) echo 'checked'; ?>> PayPal<br>
-                        <input type="checkbox" name="paypal_option[]" value="Cash" <?php if(in_array("Cash", $paypal_option)) echo 'checked'; ?>> Cash<br>
-                        <input type="checkbox" name="paypal_option[]" value="Credit_Card" <?php if(in_array("Credit_Card", $paypal_option)) echo 'checked'; ?>> Credit Card<br>
-                        
-                       
-                                  
-                    </div>
-
-                      <div class="form-group">
-                    
-                                            
-                      <label>Card option</label><br>
-                    
-                       <input type="radio" name="card_option" value="Authorize" <?php if($row->card_option=='Authorize') echo 'checked'; ?>>  Authorize<br>
-                        <input type="radio" name="card_option" value="BrainTree" <?php if($row->card_option=='BrainTree') echo 'checked'; ?>> Brain Tree<br>
-                        
-                        
-                    </div>
                                          <div class="form-group" id='paypal1'>
 										
                                         <label>Paypal </label>
@@ -216,7 +193,7 @@ if(($this->session->flashdata('item'))) {
                                            
                                         </div>
                                         <div class="form-group ">
-                                          <label>Verification </label>
+                                          <label>Verificación </label>
                                           <select class="form-control select2"  style="width: 100%;" name="verification" id="Verification">
                                                <option value="on"<?php if($row->verification  == 'on') echo 'selected'; ?> >On</option>
                                                <option value="off" <?php if($row->verification  == 'off') echo 'selected'; ?>>Off</option>
@@ -225,7 +202,7 @@ if(($this->session->flashdata('item'))) {
                                         </div>
                                        <div class="form-group">
                                        
-                                        <input type="submit" class="btn btn-primary" value="Save" id="taxiadd">
+                                        <input type="submit" class="btn btn-primary" value="Guardar" id="taxiadd">
                                         <button type="reset" class="btn btn-primary">Reset </button>
                                         </div>
                                         
@@ -235,7 +212,7 @@ if(($this->session->flashdata('item'))) {
                                          
                                         
 										 <div class="form-group Communication">
-                                            <label>Communication</label>
+                                            <label>Comunicación</label>
                                           <select class="form-control select2"  style="width: 100%;" name="communication" id="communication">
                                                <option value="sms"<?php if($row->communication == 'sms') echo 'selected'; ?> >Sms</option>
                                                <option value="email" <?php if($row->communication == 'email') echo 'selected'; ?>>Email</option>
@@ -244,31 +221,31 @@ if(($this->session->flashdata('item'))) {
                                         </div>
 										<div id='comu-sms'>
                                          <div class="form-group">
-                                            <label>Sender ID(sms)</label>
+                                            <label>Remitente ID(sms)</label>
                                             <input class="form-control regcom"  name="sender_id"  id="sender-id"  value="<?php echo $row->sender_id; ?>">
                                            
                                         </div>
                                         <div class="form-group">
-                                            <label class="intrate">Sms Username</label>
+                                            <label class="intrate">Usuario Sms</label>
                                             <input class="form-control regcom" name="sms_username" id="sms_username" value="<?php echo $row->sms_username; ?>">
                                         </div>
                                         <div class="form-group">
-                                            <label class="intrate">Sms Password</label>
+                                            <label class="intrate">Password Sms</label>
                                             <input class="form-control regcom" name="sms_password" id="sms_password" value="<?php echo $row->sms_password; ?>" type="password">
                                         </div>
 										</div>
 										
 										<div id='comu-email'>
 										<div class="form-group">
-                                            <label class="intrate">Smtp Username</label>
+                                            <label class="intrate">Usuario Smtp</label>
                                             <input class="form-control regcom" name="smtp_username" id="smtp_username" value="<?php echo $row->smtp_username; ?>">
                                         </div>
                                         <div class="form-group">
-                                            <label class="intrate">Smtp Host</label>
+                                            <label class="intrate">Host Smtp</label>
                                             <input class="form-control regcom" name="smtp_host" id="smtp_host" value="<?php echo $row->smtp_host; ?>" >
                                         </div>
 										<div class="form-group">
-                                            <label class="intrate">Smtp Password</label>
+                                            <label class="intrate">Password Smtp</label>
                                             <input class="form-control regcom" name="smtp_password" id="smtp_password" value="<?php echo $row->smtp_password; ?>" type="password">
                                         </div>
 										</div>
@@ -282,55 +259,35 @@ if(($this->session->flashdata('item'))) {
                                         </div> -->
 						
 										<div class="form-group">
-                                            <label >App Secret Key</label>
+                                            <label >Llave Secreta App</label>
                                             <input class="form-control regcom" name="serv_secret_key" id="serv_secret_key" value="<?php echo $row->serv_secret_key;?>" type="text">
                                         </div>				
 										
                                          <div class="form-group">
-                                            <label>Google Analytic code</label>
+                                            <label>Codigo de Google Analytic</label>
                                             <input class="form-control regcom"  name="analatic_code"  id="analatic_code"  value="<?php echo $row->analatic_code; ?>">
                                            
                                         </div>
-										 	 <div class="form-group ">
-                                            <label>Automatically  Assigning Driver </label>
-                                          <select class="form-control select2"  style="width: 100%;" name="mechanic_assigned" id="Verification">
-                                               <option value="on"<?php if($row->mechanic_assigned  == 'on') echo 'selected'; ?> >On</option>
-                                               <option value="off" <?php if($row->mechanic_assigned  == 'off') echo 'selected'; ?>>Off</option>
-                                               
-                                                  </select>
-                                        </div>  
-										 <div class="form-group" id='Authorize.Net'>
-										
-                                            <label>Authorize.Net </label>
-                                          <select class="form-control select2"  style="width: 100%;" name="authorize_net_url" id="Authorize.Net">
-                                               <option value="https://secure.authorize.net/gateway/transact.dll"<?php if($row->authorize_net_url == 'https://secure.authorize.net/gateway/transact.dll') echo 'selected'; ?> >Live</option>
-                                               <option value="https://test.authorize.net/gateway/transact.dll" <?php if($row->authorize_net_url == 'https://test.authorize.net/gateway/transact.dll') echo 'selected'; ?>>Sandbox</option>
-                                               
-                                                  </select>
-                                           
-                                        </div>
-										<div id="Authorize-lid">
-										<div class="form-group " id=''>
-                                            <label>Authorize.Net Login ID</label>
-                                          <input class="form-control regcom"  name="authorize_id"  id="Authorizeid"  value="<?php echo $row->authorize_id; ?>" >
-                                           
-                                        </div>
-										<div class="form-group " >
-                                            <label>Authorize.Net Transaction key</label>
-                                          <input class="form-control regcom"  name="authorize_key"  id="Authorizekey"  value="<?php echo $row->authorize_key; ?>" >
-                                           
-                                        </div>
-										<div class="form-group " >
+										 	  
+										  
+									 
+									 
+										 <!--<div class="form-group " >
                                             <label>Braintree merchant id</label>
-                                          <input class="form-control regcom"  name="braintree_merchant_id"  id="braintree_merchant_id"  value="<?php echo $row->braintree_merchant_id; ?>" >
+                                          <input class="form-control regcom"  name="braintree_merchant_id"  id="braintree_merchant_id"  value="<?php //echo $row->braintree_merchant_id; ?>" >
+                                            -->
+                                       <!--  </div><div class="form-group " >
+                                            <label>Llave Pública Braintree</label>
+                                          <input class="form-control regcom"  name="braintree_public_key"  id="braintree_public_key"  value="<?php //echo $row->braintree_public_key; ?>" >
                                            
                                         </div><div class="form-group " >
-                                            <label>Braintree Public key</label>
-                                          <input class="form-control regcom"  name="braintree_public_key"  id="braintree_public_key"  value="<?php echo $row->braintree_public_key; ?>" >
+                                            <label>Llave Privada Braintree</label>
+                                          <input class="form-control regcom"  name="braintree_private_key"  id="braintree_private_key"  value="<?php //echo $row->braintree_private_key; ?>" >
                                            
-                                        </div><div class="form-group " >
-                                            <label>Braintree Private key</label>
-                                          <input class="form-control regcom"  name="braintree_private_key"  id="braintree_private_key"  value="<?php echo $row->braintree_private_key; ?>" >
+                                        </div> -->
+                                        <div class="form-group " >
+                                            <label>Mensaje de Cuenta</label>
+                                            <textarea  id="message_account" name="message_account" type="text" class="form-control "><?php echo $row->message_account; ?></textarea>
                                            
                                         </div>
 										 </div>

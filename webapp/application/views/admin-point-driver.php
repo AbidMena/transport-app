@@ -18,12 +18,12 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Point To Point Transfer Details 
+            Detalles de Tranferencias Punto a Punto
           </h1>
           <ol class="breadcrumb">
-            <li><a href="<?php echo base_url();?>admin/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="<?php echo base_url();?>admin/dashboard"><i class="fa fa-dashboard"></i> Inicio</a></li>
             <li><a href="#">VBD</a></li>
-            <li class="active"> Assigned Driver</li>
+            <li class="active">Conductor Asignado</li>
           </ol>
         </section>
 
@@ -56,11 +56,11 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>From</th>
-                                            <th>To</th>
-                                             <th>Date</th>
-                                             <th>Status</th>
-                                            <th>Action</th>
+                                            <th>Desde</th>
+                                            <th>Hasta</th>
+                                             <th>Fecha</th>
+                                             <th>Estado</th>
+                                            <th>Acción</th>
                                            
                                         </tr>
                                     </thead>
@@ -133,7 +133,7 @@
 	$(document).on('click',"#example1 .status2",function(){
      
 	   			
-			var r = confirm("Are you sure want to change the Status");
+			var r = confirm("¿Está seguro que quiere cambiar el estado?");
 			if (r == true) {
 				var th=$(this);			
 				var id = $(this).attr('title');								
@@ -156,7 +156,7 @@
 		});				   
 		
 		$(document).on('click',"#example1 .delete",function(){
-			var r = confirm("Are you sure want to delete the Booking details ");
+			var r = confirm("¿Está seguro que quiere eliminar los detalles de la reserva?");
 			if (r == true) {
 				var th=$(this);			
 				var id = $(this).attr('title');

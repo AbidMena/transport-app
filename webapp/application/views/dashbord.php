@@ -17,10 +17,10 @@
         <section class="content-header">
           <h1>
             Dashboard
-            <small>Control panel</small>
+            <small>Panel de Control</small>
           </h1>
           <ol class="breadcrumb">
-            <li><a href="<?php echo base_url();?>admin/dashboard"><i class="fa fa-dashboard"></i>Home</a></li>
+            <li><a href="<?php echo base_url();?>admin/dashboard"><i class="fa fa-dashboard"></i>Inicio</a></li>
             <li class="active">Dashboard</li>
           </ol>
         </section>
@@ -39,12 +39,12 @@ $query = $this->db->query("Select count(id) as count From `bookingdetails`  ");
 $row = $query->row('bookingdetails');
 				?>
                   <h3><?php echo $row->count;?></h3>
-                  <p>Booking</p>
+                  <p>Reservas</p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-bag"></i>
                 </div>
-                <a href="<?php echo base_url();?>admin/pointdriver" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="<?php echo base_url();?>admin/pointdriver" class="small-box-footer">Más info <i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div><!-- ./col -->
 			
@@ -61,12 +61,12 @@ $query = $this->db->query("Select count(id) as count From `driver_details`  ");
 $row = $query->row('driver_details');
 				?>
                   <h3><?php echo $row->count;?></h3>
-                  <p>Driver</p>
+                  <p>Conductor</p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-stats-bars"></i>
                 </div>
-                <a href="<?php echo base_url();?>admin/view_driver" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="<?php echo base_url();?>admin/view_driver" class="small-box-footer">Mas info <i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div><!-- ./col -->
 			
@@ -79,12 +79,12 @@ $query = $this->db->query("Select count(id) as count From `userdetails` where us
 $row = $query->row('userdetails');
 				?>
                   <h3><?php echo $row->count;?></h3>
-                  <p>User Registrations</p>
+                  <p>Usuario Registrados</p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-person-add"></i>
                 </div>
-                <a href="<?php echo base_url();?>admin/dashboard" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="<?php echo base_url();?>admin/dashboard" class="small-box-footer">Mas info <i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div><!-- ./col -->
 		
@@ -98,12 +98,12 @@ $query = $this->db->query("SELECT DISTINCT country FROM visits");
 $row = $query->num_rows;
 				?>
                   <h3><?php echo $row;?></h3>
-                  <p>Unique Visitors</p>
+                  <p>Visitantes Únicos</p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-pie-graph"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="#" class="small-box-footer">Mas info <i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div><!-- ./col -->
 			
@@ -120,7 +120,7 @@ $row = $query->num_rows;
                 <ul class="nav nav-tabs pull-right">
                   <!--li class="active"><a href="#donut-chart" data-toggle="tab"></a></li>
                   <li><a href="#sales-chart" data-toggle="tab"></a></li-->
-                  <li class="pull-left header"><i class="fa fa-inbox"></i> Booking</li>
+                  <li class="pull-left header"><i class="fa fa-inbox"></i> Reservas</li>
                 </ul>
                 <div class="tab-content no-padding" style='padding-bottom:20px !important;'>
                   <!-- Morris chart - Sales -->
@@ -152,7 +152,7 @@ $row = $query->num_rows;
 
                   <i class="fa fa-map-marker"></i>
                   <h3 class="box-title">
-                    Visitors
+                    Visitantes
                   </h3>
                 </div>
                 <div class="box-body">

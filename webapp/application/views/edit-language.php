@@ -17,16 +17,16 @@
         <section class="content-header">
                         
                <h1 class="edit_promo">
-                  Edit Language Details
+                  Editar Detalles de Lenguaje
                </h1>
                         
                       
 		  
 		 
           <ol class="breadcrumb">
-            <li><a href="<?php echo base_url();?>admin/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li><a href="#">language</a></li>
-            <li class="active">Edit</li>
+            <li><a href="<?php echo base_url();?>admin/dashboard"><i class="fa fa-dashboard"></i> Iniciar</a></li>
+            <li><a href="#">Lenguaje</a></li>
+            <li class="active">Editar</li>
           </ol>
         </section>
 

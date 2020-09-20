@@ -68,7 +68,7 @@
                   </div><!-- /.form group -->	  
                   
 				  <div class="form-group">
-                      <input type="button" class="btn btn-primary" value="Submit"  name="Save" id="useradd">  
+                      <input type="button" class="btn btn-primary" value="Guardar"  name="Save" id="useradd">  
                       <button type="reset" class="btn btn-primary">Reset</button>					  
                   </div>
 				 

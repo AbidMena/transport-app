@@ -17,12 +17,12 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-           Call Back
+           Regresar Llamada
           </h1>
           <ol class="breadcrumb">
-            <li><a href="<?php echo base_url();?>admin/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="<?php echo base_url();?>admin/dashboard"><i class="fa fa-dashboard"></i> Inicio</a></li>
             <li><a href="#">CB</a></li>
-            <li class="active">View All</li>
+            <li class="active">Ver Todos</li>
           </ol>
         </section>
 
@@ -45,8 +45,8 @@
                     <thead>
                       <tr>
                        
-                        <th>Mobile</th>
-                        <th>Action</th>
+                        <th>Celular</th>
+                        <th>Acción</th>
                       </tr>
                     </thead>  
 					  <?php
@@ -107,7 +107,7 @@
    $(function () {
 	   $(document).on('click',"#example1 .delete",function(){		
 							
-			var r = confirm("Are you sure want to delete the call list ");
+			var r = confirm("¿Está seguro de querer eliminar esta lista de llamadas?");
 			if (r == true) {
 				var th=$(this);			
 				var id = $(this).attr('title');

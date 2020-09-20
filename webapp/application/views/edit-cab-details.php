@@ -16,14 +16,14 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1 class="add_promocode">
-           Edit Point to Point Transfer
+           Editar Transferencia de Punto a Punto
           </h1>
 		  
 		 
           <ol class="breadcrumb">
-            <li><a href="<?php echo base_url();?>admin/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="<?php echo base_url();?>admin/dashboard"><i class="fa fa-dashboard"></i> Inicio</a></li>
             <li><a href="#">TD</a></li>
-            <li class="active">Edit</li>
+            <li class="active">Editar</li>
           </ol>
         </section>
 
@@ -52,7 +52,7 @@
                   <div class="box-body">
 				  
                                         <div class="form-group">
-                                            <label>Car Type</label>
+                                            <label>Tipo Carro</label>
                                              <select class="form-control regcom  select2"  style="width: 100%;" id="cartype" name="cartype">
                                               
 												 
@@ -67,23 +67,23 @@
                                                  </select>
                                         </div>
 					                     <div class="form-group">
-                                            <label>Time</label>
+                                            <label>Hora</label>
                                            <select class="form-control regcom select2"   style="width: 100%;" id="timetype" name="timetype">
                                             
-                                              <option value="day" <?php if($row->timetype == 'day') echo 'selected'; ?>>Day(6:00AM-10:00PM)</option>
-                                              <option value="night" <?php if($row->timetype == 'night') echo 'selected'; ?>>Night(10:00PM-6:00AM)</option>
+                                              <option value="day" <?php if($row->timetype == 'day') echo 'selected'; ?>>Dia(6:00AM-10:00PM)</option>
+                                              <option value="night" <?php if($row->timetype == 'night') echo 'selected'; ?>>Noche(10:00PM-6:00AM)</option>
                                               
                                                  </select>
                                          </div>
                                           <div class="form-group">
-                                            <label>Intial <?php echo $mesr;?></label>
+                                            <label>Inicial <?php echo $mesr;?></label>
                                             <input class="form-control regcom" placeholder="1" name="intialkm"  id="intialkm2" value="<?php echo $row->intialkm; ?>"> 
                                             
                                           </div>
 				
 				   <div class="form-group">
                                        
-                                        <input type="button" class="btn btn-primary" value="Save Details"  name="Save" id="taxiadd">
+                                        <input type="button" class="btn btn-primary" value="Guardar"  name="Save" id="taxiadd">
                                        
                                         </div>
 				</div>  
@@ -109,12 +109,12 @@
                   <div class="box-body">
 				  
                                          <div class="form-group">
-                                            <label class="intrate">Intial <?php echo $mesr;?> Rate</label>
+                                            <label class="intrate">Tarifa <?php echo $mesr;?> Inicial</label>
                                             <input class="form-control regcom" placeholder="49" name="intailrate" id="intailrate" value="<?php echo $row->	intailrate; ?>">
                                              <input  id="id" value="<?php echo $row->id; ?>" type="hidden" name="id">
                                         </div>
                                          <div class="form-group">
-                                            <label>Standard Rate</label>
+                                            <label>Tarifa estandar</label>
                                             <input class="form-control regcom" placeholder="145" name="standardrate"  id="standardrate" value="<?php echo $row->standardrate; ?>">
                                            <input  id="transfertype" name="transfertype" type="hidden" value="<?php echo $row->transfertype; ?>">
                                         </div>
@@ -247,12 +247,12 @@ success:function(res){
 	$(".taxi").show();
 console.log(res);
 if(res==1){
-		$(".taxi").html('<p class="success">Update Successfully</p>');
+		$(".taxi").html('<p class="success">Actualizado satisfactoriamente</p>');
 	setTimeout(function(){$(".taxi").hide(); }, 1500);
 	window.location.href="<?php echo base_url();?>index.php/admin/taxi_view";
 }
 else if(res==2){
-$(".taxi").html('<p class="error">Car Type Exists</p>');
+$(".taxi").html('<p class="error">El tipo de carro ya existe</p>');
 setTimeout(function(){$(".taxi").hide(); }, 1500);
 }else{
 

@@ -1,0 +1,17 @@
+<ion-view class='bg-grey'>
+    <ion-nav-title>
+        <div class='color-yellow text-center'>Actualizar ubicación</div>
+    </ion-nav-title>
+    <ion-content>
+        <div class='h-100-p'>
+
+            <div id="location"></div>
+
+            <div class="row">
+                <input ng-click='updateMyLocation()'  class='btn bg-yellow color-white big-font m-top-20' type='button' value='ACTUALIZAR MI UBICACION' />
+            </div>
+            <div id="map" data-tap-disabled="true"></div>
+            <div class='color-white text-center net-error'>{{ 'No network connection!' | langTranslate: appConvertedLang['No_network_connection'] }}</div>
+        </div>
+    </ion-content>
+</ion-view>

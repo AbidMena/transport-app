@@ -1699,7 +1699,7 @@ function get_table_where( $select_data, $where_data, $table){
 		$id = $data['id'];
 		
 		$datas = array(
-                'user_status'   => ''
+                'user_status'   => 'Active'
                
             );
 		$this->db->where('id', $id);

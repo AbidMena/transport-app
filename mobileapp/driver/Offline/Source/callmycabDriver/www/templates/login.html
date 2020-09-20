@@ -18,10 +18,10 @@
 					
 					<div class='input-box'>
 						<div class="error-container " ng-show="login_form.mail.$dirty && login_form.mail.$invalid" >
-							<small class="error	 " ng-show="login_form.mail.$error.required">{{ 'Enter user name / email / mobile' | langTranslate: appConvertedLang['Enter_user_name_email_mobile'] }}</small>
+							<small class="error	 " ng-show="login_form.mail.$error.required">Digite su correo o teléfono</small>
 								
 						</div>
-						<input name='mail' ng-model='login.mail' required placeholder="{{ 'Enter user name / email / mobile' | langTranslate: appConvertedLang['Enter_user_name_email_mobile'] }}" class='color-yellow' type='text' />
+						<input name='mail' ng-model='login.mail' required placeholder="Ingrese su correo/telefono" class='color-yellow' type='text' />
 						<img class='input-icon icon-20' src='img/icons/mobile.png'/>
 					</div>
 					</br>
@@ -34,9 +34,7 @@
 						<img class='input-icon icon-20' src='img/icons/lock.png'/>
 					</div>
 				<input ng-click='doLogin(login_form)'  class='btn bg-yellow color-white m-top-20 big-font' type='button' value="{{ 'SIGN IN' | langTranslate: appConvertedLang['Sign_In'] }}" /> 
-					<div class='text-center m-top-20'>
-						<a href='' class='color-white ' >{{ 'Forgot Password?' | langTranslate: appConvertedLang['Forgot_Password'] }}</a>
-					</div>
+					 
 				</div>	
 			</div>
 		</div>

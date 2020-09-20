@@ -83,7 +83,7 @@
 				  
                                          <div class="form-group">
                                        
-                                        <input type="button" class="btn btn-primary" value="Save Details"  name="Save" id="useredit">
+                                        <input type="button" class="btn btn-primary" value="Guardar"  name="Save" id="useredit">
                                         
                                       
                                         <input  name="id"   value="<?php echo $row->id; ?>" type="hidden">

@@ -17,12 +17,12 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Promo Code Details
+            Detalles de Códigos de Promoción
           </h1>
           <ol class="breadcrumb">
-            <li><a href="<?php echo base_url();?>admin/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="<?php echo base_url();?>admin/dashboard"><i class="fa fa-dashboard"></i> Inicio</a></li>
             <li><a href="#">PM</a></li>
-            <li class="active">View All</li>
+            <li class="active">Ver Todos</li>
           </ol>
         </section>
 
@@ -44,13 +44,13 @@
                                 
                                     <thead>
                                         <tr>
-                                            <th>Promo Code</th>
-                                            <th>Type</th>
-                                            <th>Amount</th>
-                                             <th>Start Date</th>
-                                             <th>End Date</th>
-                                             <th>Status</th>
-                                            <th>Action</th>
+                                            <th>Código</th>
+                                            <th>Tipo</th>
+                                            <th>Monto</th>
+                                             <th>Fecha Inicio</th>
+                                             <th>Fecha Fin</th>
+                                             <th>Estado</th>
+                                            <th>Acción</th>
                                             
                                         </tr>
                                     </thead>
@@ -122,7 +122,7 @@
    $(function () {
 	   $(document).on('click',"#example1 .delete",function(){		
 							
-			var r = confirm("Are you sure want to delete the Promo Code ");
+			var r = confirm("¿Está seguro de quiere eliminar este código de promoción?");
 			if (r == true) {
 				var th=$(this);			
 				var id = $(this).attr('title');
@@ -136,7 +136,7 @@
              $(".editbook").show();
 					console.log(cancel);
 					if(cancel==1){
-            $(".editbook").html('<p class="success">Delete Successfully</p>');
+            $(".editbook").html('<p class="success">Eliminado satisfactoriamente</p>');
   setTimeout(function(){$(".editbook").hide(); }, 1500);
 					th.hide();
 					location.reload();

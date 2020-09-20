@@ -16,14 +16,14 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1 class="add_promocode">
-           Add Driver Details
+           Agregar Detalles del Conductor
           </h1>
 		  
 		 
           <ol class="breadcrumb">
-            <li><a href="<?php echo base_url();?>admin/dashboard"><i class="fa fa-dashboard"></i>Home</a></li>
+            <li><a href="<?php echo base_url();?>admin/dashboard"><i class="fa fa-dashboard"></i>Inicio</a></li>
             <li><a href="#">DM</a></li>
-            <li class="active">Add New</li>
+            <li class="active">Agregar Nuevo</li>
           </ol>
         </section>
 
@@ -44,24 +44,24 @@
                   <div class="box-body">
 				  
                                         <div class="form-group">
-                                        <label>Name</label>
+                                        <label>Nombre</label>
                                         <!--  <input  id="name" name="name" type="text" class="form-control"> -->
                                         <input  id="name1" name="name" type="text" class="form-control  samples">
                                        
                                         </div>
                                        <div class="form-group">
-                                        <label>Username</label>
+                                        <label>Usuario</label>
                                         <input  id="user_name" name="user_name" type="text" class="form-control regcom samples">
                                         </div><div class="form-group">
                                         <label>Password</label>
                                         <input  id="password" name="password" type="password" class="form-control regcom">
                                         </div>
                                          <div class="form-group">
-                                            <label>Address</label>
+                                            <label>Dirección</label>
                                           <textarea class="form-control  samples" rows="3" name="address" id="address"></textarea>
                                         </div>
 										<div class="form-group">
-                                       <label>Phone</label>
+                                       <label>Celular</label>
                      <div class="input-group">
                       <div class="input-group-addon">
                         <i class="fa fa-phone"></i>
@@ -77,7 +77,7 @@
                                         </div>
                                        <div class="form-group">
                                        
-                                        <input type="button" class="btn btn-primary" value="Save "  name="Save" id="taxiadd">
+                                        <input type="button" class="btn btn-primary" value="Guardar "  name="Save" id="taxiadd">
                                         <button type="reset" class="btn btn-primary">Reset </button>
                                         </div>
 				</div>  
@@ -103,15 +103,15 @@
                   <div class="box-body">
 				  
 					                     <div class="form-group">
-                                            <label class="intrate">License No</label>
+                                            <label class="intrate">No. Licencia </label>
                                             <input class="form-control regcom" name="license_no" id="license">
                                         </div>
                                             <div class="form-group ">
 										  
 												   
-                                            <label>Car Type</label>
+                                            <label>Tipo Carro</label>
 											<select id="cartype" class="form-control select2"  style="width: 100%;" name="car_type">
-						                    <option value='0'>Car Type</option>
+						                    <option value='0'>Tipo Carro</option>
 											<?php
 											$query1 = $this->db->query("SELECT * FROM car_categories where status='Active'");
 							             foreach($query1->result_array('cabdetails') as $row1){
@@ -122,7 +122,7 @@
 											</select>
                                         </div>
                                          <div class="form-group">
-                                            <label>Car No</label>
+                                            <label>No. Carro</label>
                                             <input class="form-control regcom"  name="car_no"  id="carno">
                                            
                                         </div>
@@ -317,7 +317,7 @@ setTimeout(function(){$(".taxi").hide(); }, 3000);
 }
 else{
 
-$(".taxi").html('<p class="success">Driver Details Saved Successfully</p>');
+$(".taxi").html('<p class="success">Detalles del conductor guardados con éxito</p>');
 setTimeout(function(){$(".taxi").hide(); }, 1500);
 $('#taxi_reg')[0].reset();
 }

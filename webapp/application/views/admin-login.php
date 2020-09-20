@@ -26,15 +26,15 @@
   <body class="hold-transition login-page">
     <div class="login-box">
       <div class="login-logo">
-	  <img class="circle" src="<?php echo base_url();?>upload/logo.png">
+	  <img class="circle" src="<?php echo base_url().'upload/logo.png?id='.rand();?>">
       </div><!-- /.login-logo -->
       <div class="login-box-body">
-        <p class="login-box-msg">Sign in to start your session</p>
+        <p class="login-box-msg">Entra para iniciar sesión</p>
         <!--<form action="../../index2.html" method="post">-->	
 		<form role="form" id="adminlog">
           <div class="form-group has-feedback">
                                  <div class="form-group">
-                                    <input class="form-control" placeholder="Username" name="email" type="text" autofocus>
+                                    <input class="form-control" placeholder="Usuario" name="email" type="text" autofocus>
                                  </div>
                                  <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
           </div>
@@ -48,13 +48,13 @@
             <div class="col-xs-8">
               <div class="checkbox icheck">
                                      <label>
-                                        <input  type="checkbox" value="Remember Me" name="rememberme">Remember Me
+                                        <input  type="checkbox" value="Remember Me" name="rememberme">Recuerdame
                                      </label>
               </div>
             </div><!-- /.col -->
             <div class="col-xs-12">
              
-			  <input type="button" class="btn btn-primary btn-block btn-flat" value="Sign In" id="sublog">
+			  <input type="button" class="btn btn-primary btn-block btn-flat" value="Entrar" id="sublog">
 			  <div class="atest2 login_page"></div>
             </div><!-- /.col -->
           </div>
@@ -98,7 +98,7 @@ $(document).ready(function () {
 					$(".atest2").show();
 					console.log(result);
 					if(result==1){
-						$(".atest2").html('<div class="alert alert-danger">Login Failed</div>');
+						$(".atest2").html('<div class="alert alert-danger">Login Falló</div>');
 						setTimeout(function(){$(".atest2").hide(); }, 3000);
 
 					}

@@ -16,14 +16,14 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1 class="add_promocode">
-           Edit Promo Code
+           Editar Código de Promoción
           </h1>
 		  
 		 
           <ol class="breadcrumb">
-            <li><a href="<?php echo base_url();?>admin/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="<?php echo base_url();?>admin/dashboard"><i class="fa fa-dashboard"></i> Inicio</a></li>
             <li><a href="#">PM</a></li>
-            <li class="active">Edit</li>
+            <li class="active">Editar</li>
           </ol>
         </section>
 
@@ -53,25 +53,25 @@
                   <div class="box-body">
 				  
                                       <div class="form-group">
-                                            <label>Promo Code</label>
+                                            <label>Código promo</label>
                                            <input class="form-control regcom" value="<?php echo $row->promocode; ?>" name="promocode" >
                                         </div>
                                          <div class="form-group">
-                                            <label>Type</label>
+                                            <label>Tipo</label>
                                           <select class="form-control select2"  style="width: 100%;" name="type" >
-                                               <option value="Fixed" <?php if($row->type == 'Fixed') echo 'selected'; ?>>Fixed</option>
-                                               <option value="Percentage" <?php if($row->type == 'Percentage') echo 'selected'; ?>>Percentage</option>
+                                               <option value="Fixed" <?php if($row->type == 'Fixed') echo 'selected'; ?>>Reparado</option>
+                                               <option value="Percentage" <?php if($row->type == 'Percentage') echo 'selected'; ?>>Porcentage</option>
                                                
                                                   </select>
                                         </div>
                                         
                                          <div class="form-group">
-                                            <label>Amount</label>
+                                            <label>Monto</label>
                                             <input class="form-control regcom sample" value="<?php echo $row->amount; ?>" name="amount"  id="amount">
                                             
                                         </div>
                                         <div class="form-group">
-                                        <input type="button" class="btn btn-primary" value="Save Details"  name="Save" id="promoedit">
+                                        <input type="button" class="btn btn-primary" value="Guardar Detalles"  name="Save" id="promoedit">
                                        
                                         
                                         </div>
@@ -98,7 +98,7 @@
                   <div class="box-body">
 				  
                   <div class="form-group">
-                    <label>Start Date</label>
+                    <label>Fecha Inicio</label>
                     <div class="input-group">
                       <div class="input-group-addon">
                         <i class="fa fa-calendar"></i>
@@ -108,7 +108,7 @@
                   </div><!-- /.form group -->
 				                        
                                          
-                    <label>End Date</label>
+                    <label>Fecha Fin</label>
                     <div class="input-group">
                       <div class="input-group-addon">
                         <i class="fa fa-calendar"></i>
@@ -117,12 +117,12 @@
 					  <input type="hidden" name="id" value="<?php echo $row->id; ?>">
                     </div><!-- /.input group -->
                      </div><!-- /.form group -->
-                      <label>Status</label>
+                      <label> Estado</label>
                        <div class="input-group">
                        <div class="input-group-addon">
                        <select class="form-control pull-right required" name="status">
-                <option <?php if ($row->status == '1' ) echo 'selected' ; ?> value="1">Active</option>
-                <option <?php if ($row->status == '0' ) echo 'selected' ; ?> value="0">InActive</option>
+                <option <?php if ($row->status == '1' ) echo 'selected' ; ?> value="1">Activo</option>
+                <option <?php if ($row->status == '0' ) echo 'selected' ; ?> value="0">InActivo</option>
                
               </select>
                       </div>
@@ -234,7 +234,7 @@ success:function(res){
 	$(".promo-add").show();
 console.log(res);
 if(res==1){
-		$(".promo-add").html('<p class="success">Promo Code Updated Successfully</p>');
+		$(".promo-add").html('<p class="success">Código Promoción actualizado satisfactoriamente</p>');
 	setTimeout(function(){$(".promo-add").hide(); }, 1500);
 	//window.location.href="<?php echo base_url();?>index.php/admin/pointview";
 }

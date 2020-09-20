@@ -16,14 +16,14 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1 class="edit_promo">
-         Add Car
+          Agregar Carro
           </h1>
 		  
 		 
           <ol class="breadcrumb">
-            <li><a href="<?php echo base_url();?>admin/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="<?php echo base_url();?>admin/dashboard"><i class="fa fa-dashboard"></i> Inicio</a></li>
             <li><a href="<?php echo base_url();?>admin/view_car">Cars</a></li>
-            <li class="active">Add Car</li>
+            <li class="active">Agregar Carro</li>
           </ol>
         </section>
 
@@ -55,14 +55,14 @@ if(($this->session->flashdata('item'))) {
     <form role="form" method="post" action="<?php echo base_url('admin/add_car');?>" class="validate" enctype="multipart/form-data">
       <div class="col-lg-6">
           <div class="form-group">
-            <label>Car Type</label>
+            <label>Tipo Carro</label>
               <input   name="car_type" type="text" class="form-control " required>
           </div>                                
          <div class="form-group">
             <div class="row">
                <div class="col-lg-12">
                   <div class="col-sm-6">
-                     <label>Car Image</label>
+                     <label>Imagen Carro</label>
                      <input class="regcom"  type="file"  name="car_image" accept="image/*" class="" size="20" required>
                   </div>
                  
@@ -70,7 +70,7 @@ if(($this->session->flashdata('item'))) {
             </div>
          </div>
          <div class="form-group">
-            <input type="submit" class="btn btn-primary" value="Save">
+            <input type="submit" class="btn btn-primary" value="Guardar">
          </div>
       </div>
       </form>
